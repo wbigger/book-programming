@@ -1,0 +1,8 @@
+[book]
+title = "Tecnologie Informatiche - Programmazione"
+author = "Claudio Capobianco"
+description = "Materiale di supporto alle lezioni."
+
+[build]
+build-dir = "book-2Binf"
+create-missing = true
