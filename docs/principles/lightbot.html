@@ -3,27 +3,27 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tecnologie Informatiche - Programmazione</title>
+        <title>Lightbot - Tecnologie Informatiche - Programmazione</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Materiale di supporto alle lezioni.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -32,7 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">var path_to_root = "";</script>
+        <script type="text/javascript">var path_to_root = "../";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="principles/index.html"><strong aria-hidden="true">2.</strong> Principi di programmazione</a></li><li><a href="principles/lightbot.html"><strong aria-hidden="true">3.</strong> Lightbot</a></li><li><a href="principles/processing.html"><strong aria-hidden="true">4.</strong> Processing</a></li></ol>
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../principles/index.html"><strong aria-hidden="true">2.</strong> Principi di programmazione</a></li><li><a href="../principles/lightbot.html" class="active"><strong aria-hidden="true">3.</strong> Lightbot</a></li><li><a href="../principles/processing.html"><strong aria-hidden="true">4.</strong> Processing</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -105,7 +105,7 @@
                         <h1 class="menu-title">Tecnologie Informatiche - Programmazione</h1> 
 
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                         </div>
@@ -136,36 +136,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#fondamenti-di-programmazione" id="fondamenti-di-programmazione"><h1>Fondamenti di programmazione</h1></a>
-<p><strong>A.S. 2018-2019</strong></p>
-<p><strong>Istituto di Istruzione Superiore G. Marconi</strong></p>
-<p><strong>Tecnologie informatiche</strong></p>
-<p>Benvenuti ragazzi!</p>
-<p>Questo materiale riepiloga quanto detto a lezione.</p>
-<p>Le risposte alle domande dei compiti in classe sono tutte incluse in questo materiale.</p>
-<p>I riferimenti al libro di testo sono tra parentesi quadre, come ad esempio [pag. 1].</p>
-<blockquote>
-<p>Il testo in questi box sono per approfondimento. La lettura di questo materiale non è strettamente
-necessaria per le verifiche, ma è consigliata per vostra cultura personale e in quanto
-sapere indispensabile per chi vuole diventare un informatico.</p>
-</blockquote>
-<p>Buon studio e buon lavoro.</p>
-<a class="header" href="#principi-di-programmazione" id="principi-di-programmazione"><h1>Principi di programmazione</h1></a>
-<p>Qual'è il nostro scopo in quanto studenti e futuri informatici?</p>
-<p>Questa è una domanda che dobbiamo porci continuamente, dal momento in cui cominciamo a studiare informatica e per tutta la nostra carriera lavorativa.</p>
-<p>Probabilmente la risposta più esatta a questa domanda è: <strong>risolvere problemi</strong>.</p>
-<p>Non tutti i problemi possono essere risolti con l'informatica ed i computer, o almeno non in maniera semplice e diretta. Noi ci concentreremo su quei problemi che possiamo risolvere, attraverso gli strumenti che piano piano negli anni impareremo ad usare e padroneggiare.</p>
-<p>È importante però chiarire fin da subito che noi, in quanto esseri umani, per poter <em>risolvere</em> un problema dobbiamo prima <em>comprenderlo</em> ed essere in grado di <em>condividere</em> il nostro punto di vista con le altre persone coinvolte nel progetto. Nel corso degli ultimi 50 anni in cui si è sviluppata l'ingegneria del software, si è visto statisticamente che il modo più efficace per raggiungere questi obiettivi è attraverso la <em>narrativizzazione</em> dei problemi, in altre parole rappresentare i problemi attraverso delle <strong>storie</strong>. Noi useremo questo approccio durante questo corso e per tutti gli anni a seguire.</p>
-<blockquote>
-<p>Ttradurre i progetti in storie è stato formalizzato in particolare da una metodologia chiamata <em>Agile/Scrum</em>. Per maggiori approfondimenti, potete consultare:</p>
-<ul>
-<li><a href="http://www.agilemanifesto.org">Agile Manifesto</a> [1994]</li>
-<li>il mio corso di <a href="https://wbigger.github.io/book-web-app">Sviluppo Web</a> per il triennio informatico, materia TPSI</li>
-<li>il corso su edX di <a href="https://www.edx.org/course/agile-software-development">Agile Software Development</a> (completamente gratuito)</li>
-<li>la specializzazione su Coursera di <a href="https://www.coursera.org/specializations/agile-development">Agile Development</a> (materiale accessibile gratuitamente, a pagamento se si richiede la certificazione)</li>
-</ul>
-</blockquote>
-<a class="header" href="#lightbot" id="lightbot"><h1>Lightbot</h1></a>
+                        <a class="header" href="#lightbot" id="lightbot"><h1>Lightbot</h1></a>
 <p>Per spiegare in maniera pratica cosa intendiamo per risolvere i problemi attraverso storie useremo un'applicazione mobile chiamata <a href="http://lightbot.com/"><strong>LightBot</strong></a>. Potete scaricare l'applicazione sul vostro smartphone attraverso i seguenti link.</p>
 <style>
 .text-center {
@@ -288,35 +259,21 @@ p.two-pane img {
 </ul>
 <p>Come essere umani, tendiamo spesso a dare troppa importanza al primo vincolo: non sono riuscito a completare il progetto perché non avevo abbastanza tempo, o soldi, o persone nel team. La realtà è però che il budget, per sua natura, è sempre limitato: non potremo mai aumentare all'infinito i nostri soldi, o il tempo, o le persone che lavorano con noi.</p>
 <p>Gli altri due vincoli possiamo aumentarli molto di più: trovare strumenti migliori, studiare, aggiornarsi. La storia della tecnologia in fondo è proprio questa: l'essere umano, mantenendo più o meno costante il budget, è riuscito a risolvere straordinari problemi migliorando continuamente gli strumenti e le proprie capacità: procurarsi il cibo, condividere informazioni, arrivare sempre più lontano. Il nostro percorso di studi si concentrerà su questo: trovare gli strumenti più adatti e migliorare le nostre capacità per risolvere i problemi che dovremo affrontare.</p>
-<a class="header" href="#processing" id="processing"><h1>Processing</h1></a>
-<p>TODO TODO TODO</p>
-<p>Cambiamo dominio: Processing.</p>
-<p>Vincoli: funzioni che sono messi a disposizione dal linguaggio, e che sappiamo usare!</p>
-<p>Storia: cappuccetto rosso.</p>
-<p>Concetti da spiegare:</p>
-<ul>
-<li>variabili</li>
-<li>spazio allocato in memoria</li>
-<li>dichiarazione + assegnazione</li>
-<li>funzioni</li>
-<li>concetto preso dalla matematica</li>
-<li>differenze con il concetto matematico</li>
-<li>boolean</li>
-<li>mini introduzione alle classi: PShape</li>
-<li>accenni a PImage</li>
-<li>condizionali: if</li>
-<li>flusso che si biforca</li>
-<li>costruttori ciclici: for</li>
-<li>flusso che torna su sè stesso</li>
-<li>approfondimento: conversione da gradi a radianti</li>
-</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="../principles/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
+                        
+                            <a rel="next" href="../principles/processing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -326,7 +283,15 @@ p.two-pane img {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="../principles/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
+                
+                    <a href="../principles/processing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
@@ -339,26 +304,18 @@ p.two-pane img {
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
 
-        
-        
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-        
         
 
     </body>
