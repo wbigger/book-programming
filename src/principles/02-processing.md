@@ -50,6 +50,14 @@ Cominciamo ora a realizzare passo dopo passo la nostra applicazione, partendo da
 
 > Il progetto completo di Cappuccetto Rosso svolto in classe lo trovate qui: [https://github.com/wbigger/cappuccettorosso](https://github.com/wbigger/cappuccettorosso)
 
+## Design
+Il passo successivo alla storia è disegnare come dovrà apparire la nostra applicazione. Possiamo fare un disegno su carta o usando un programma di disegno (es. Gimp, Photoshop), ma la cosa importante è che sia chiaro come deve apparire visivamente l'applicazione e che cosa deve fare. Nel nostro caso, possiamo rappresentare l'applicazione con il seguente schema.
+
+</style>
+<p align=center>
+<img class="center" alt="design" src="assets/pr-design.png">
+</p>
+
 
 ## Immagini e forme
 Analizziamo gli elementi della nostra storia che dovremo andare a rappresentare sul nostro schermo:
@@ -140,7 +148,7 @@ Se provate ad eseguire questo codice, avrete una schermata simile alla seguente.
 <img class="center" alt="static-1" src="assets/04-pr-static-1.png">
 </p>
 
-Va quasi bene! Vorremmo però cambiare il colore di cappuccetto rosso. Come facciamo? Come al solito, andiamo sulla documentazione di [PShape](https://processing.org/reference/PShape.html), scorriamo un po' e scopriamo che esiste un metodo chiamato `setFill()` che serve proprio per questo.
+Va quasi bene! Dobbiamo però cambiare il colore della bambina in rosso. Come facciamo? Come al solito, andiamo sulla documentazione di [PShape](https://processing.org/reference/PShape.html), scorriamo un po' e scopriamo che esiste un metodo chiamato `setFill()` che serve proprio per questo.
 
 > Ci sono altre soluzioni per colorare la forma, ad esempio quella che già conosciamo di usare la funzione `fill()` subito prima di disegnare la forma. Però noi useremo setFill() perché ci permette di colorare la nostra forma senza influenzare il resto del disegno.
 
@@ -198,12 +206,18 @@ void draw() {
 </p>
 
 
-Mh... Cappuccetto Rosso ora si sposta ma non si ferma alla casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che, una volta arrivati dentro la casa, la bambina si fermi.
+Mh... Cappuccetto Rosso ora si sposta ma continua anche oltre la casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che la bambina avanzi solo se ancora non è arrivata alla casa.
 
 ## Controllo di flusso: condizioni
 Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una _condizione_, qualcosa del tipo: _se_ accade questo _allora_ fai questo. In inglese _se_ si traduce con _if_ e allora si traduce con _then_. La struttura di controllo in programmazione si chiama infatti _if-then_.
 
-Subito dopo l'`if` dobbiamo mettere una condizione, ovvero qualcosa che possa essere **vera o falsa**. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga _solo se_ non è ancora arrivata alla casa; in codice possiamo tradurre questo concetto come segue:
+Subito dopo l'`if` dobbiamo mettere una condizione, ovvero qualcosa che possa essere **vera o falsa**. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga _solo se_ non è ancora arrivata alla casa. Vediamo graficamente le variabili rappresentate sullo schermo.
+
+<p align=center>
+<img class="center" alt="conditional" src="assets/06-pr-dynamic-c.png">
+</p>
+
+In codice possiamo tradurre il concetto "solo se xCappuccetto è minore di width*0.8, fai avanzare cappuccetto" come segue:
 
 <p align=center>
 <img class="center" alt="conditional" src="assets/07-pr-conditional.png">
@@ -248,7 +262,7 @@ void draw() {
   // incremento la coordinata x di cappuccetto
   // solo se non è ancora nella casa della nonna
   if (xCappuccetto < width*0.8) {
-    xCappuccetto = xCappuccetto + 20;
+    xCappuccetto = xCappuccetto + 5;
   }
 }
 ```

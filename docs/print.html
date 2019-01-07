@@ -335,6 +335,12 @@ Come abbiamo detto, tutto comincia da un problema. Per poter imparare ad usare P
 <blockquote>
 <p>Il progetto completo di Cappuccetto Rosso svolto in classe lo trovate qui: <a href="https://github.com/wbigger/cappuccettorosso">https://github.com/wbigger/cappuccettorosso</a></p>
 </blockquote>
+<a class="header" href="#design" id="design"><h2>Design</h2></a>
+<p>Il passo successivo alla storia è disegnare come dovrà apparire la nostra applicazione. Possiamo fare un disegno su carta o usando un programma di disegno (es. Gimp, Photoshop), ma la cosa importante è che sia chiaro come deve apparire visivamente l'applicazione e che cosa deve fare. Nel nostro caso, possiamo rappresentare l'applicazione con il seguente schema.</p>
+</style>
+<p align=center>
+<img class="center" alt="design" src="assets/pr-design.png">
+</p>
 <a class="header" href="#immagini-e-forme" id="immagini-e-forme"><h2>Immagini e forme</h2></a>
 <p>Analizziamo gli elementi della nostra storia che dovremo andare a rappresentare sul nostro schermo:</p>
 <ul>
@@ -408,7 +414,7 @@ void setup() {
 <p align=center>
 <img class="center" alt="static-1" src="assets/04-pr-static-1.png">
 </p>
-<p>Va quasi bene! Vorremmo però cambiare il colore di cappuccetto rosso. Come facciamo? Come al solito, andiamo sulla documentazione di <a href="https://processing.org/reference/PShape.html">PShape</a>, scorriamo un po' e scopriamo che esiste un metodo chiamato <code>setFill()</code> che serve proprio per questo.</p>
+<p>Va quasi bene! Dobbiamo però cambiare il colore della bambina in rosso. Come facciamo? Come al solito, andiamo sulla documentazione di <a href="https://processing.org/reference/PShape.html">PShape</a>, scorriamo un po' e scopriamo che esiste un metodo chiamato <code>setFill()</code> che serve proprio per questo.</p>
 <blockquote>
 <p>Ci sono altre soluzioni per colorare la forma, ad esempio quella che già conosciamo di usare la funzione <code>fill()</code> subito prima di disegnare la forma. Però noi useremo setFill() perché ci permette di colorare la nostra forma senza influenzare il resto del disegno.</p>
 </blockquote>
@@ -456,10 +462,14 @@ void draw() {
 <p align=center>
 <img class="center" alt="dynamic" src="assets/06-pr-dynamic.gif">
 </p>
-<p>Mh... Cappuccetto Rosso ora si sposta ma non si ferma alla casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che, una volta arrivati dentro la casa, la bambina si fermi.</p>
+<p>Mh... Cappuccetto Rosso ora si sposta ma continua anche oltre la casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che la bambina avanzi solo se ancora non è arrivata alla casa.</p>
 <a class="header" href="#controllo-di-flusso-condizioni" id="controllo-di-flusso-condizioni"><h2>Controllo di flusso: condizioni</h2></a>
 <p>Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una <em>condizione</em>, qualcosa del tipo: <em>se</em> accade questo <em>allora</em> fai questo. In inglese <em>se</em> si traduce con <em>if</em> e allora si traduce con <em>then</em>. La struttura di controllo in programmazione si chiama infatti <em>if-then</em>.</p>
-<p>Subito dopo l'<code>if</code> dobbiamo mettere una condizione, ovvero qualcosa che possa essere <strong>vera o falsa</strong>. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga <em>solo se</em> non è ancora arrivata alla casa; in codice possiamo tradurre questo concetto come segue:</p>
+<p>Subito dopo l'<code>if</code> dobbiamo mettere una condizione, ovvero qualcosa che possa essere <strong>vera o falsa</strong>. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga <em>solo se</em> non è ancora arrivata alla casa. Vediamo graficamente le variabili rappresentate sullo schermo.</p>
+<p align=center>
+<img class="center" alt="conditional" src="assets/06-pr-dynamic-c.png">
+</p>
+<p>In codice possiamo tradurre il concetto &quot;solo se xCappuccetto è minore di width*0.8, fai avanzare cappuccetto&quot; come segue:</p>
 <p align=center>
 <img class="center" alt="conditional" src="assets/07-pr-conditional.png">
 </p>
@@ -498,7 +508,7 @@ void draw() {
   // incremento la coordinata x di cappuccetto
   // solo se non è ancora nella casa della nonna
   if (xCappuccetto &lt; width*0.8) {
-    xCappuccetto = xCappuccetto + 20;
+    xCappuccetto = xCappuccetto + 5;
   }
 }
 </code></pre>
