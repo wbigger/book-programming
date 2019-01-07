@@ -37,9 +37,9 @@ p.clear {
 <a href="https://it.wikipedia.org/wiki/Cappuccetto_Rosso#/media/File:Carl_Larsson_-_Little_Red_Riding_Hood_1881.jpg">
 <img class="left_side" title="Cappuccetto Rosso e il lupo in un dipinto di Carl Larsson (1881)." alt="cappuccetto-rosso" src="assets/01-pr-cappuccetto.jpg">
 </a>
-Come abbiamo detto, tutto comincia da un problema. Per poter imparare ad usare Processing, dobbiamo prima trovare un nostro problema da risolvere. Per questo corso useremo il racconto di [Cappuccetto Rosso](https://it.wikipedia.org/wiki/Cappuccetto_Rosso) a cui ispirarci.
+Come abbiamo detto, tutto comincia da un problema. Per poter imparare ad usare Processing, dobbiamo prima trovare un nostro problema da risolvere. Per questo corso useremo il racconto di [Cappuccetto Rosso](https://it.wikipedia.org/wiki/Cappuccetto_Rosso) come ispirazione.
 
-In questa favola, tutto comincia con Cappuccetto Rosso che deve andare a consegnare delle focacce alla nonna malata. Possiamo così scrivere la nostra prima _storia utente_, come abbiamo nel capitolo precedente:
+In questa favola, tutto comincia con Cappuccetto Rosso che deve andare a consegnare delle focacce alla nonna malata. Possiamo così scrivere la nostra prima _storia utente_, come abbiamo visto nel capitolo precedente:
 
 <p class="clear"></p>
 <p align="center">
@@ -201,7 +201,7 @@ void draw() {
 Mh... Cappuccetto Rosso ora si sposta ma non si ferma alla casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che, una volta arrivati dentro la casa, la bambina si fermi.
 
 ## Controllo di flusso: condizioni
-Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una _condizione_, qualcosa del tipo: _se_ accade questo _allora_ fai questo. In inglese _se_ si traduce con _if_ e allora si traduce con _then_. La strutta di controllo in programmazione si chiama infatti _if-then_.
+Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una _condizione_, qualcosa del tipo: _se_ accade questo _allora_ fai questo. In inglese _se_ si traduce con _if_ e allora si traduce con _then_. La struttura di controllo in programmazione si chiama infatti _if-then_.
 
 Subito dopo l'`if` dobbiamo mettere una condizione, ovvero qualcosa che possa essere **vera o falsa**. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga _solo se_ non è ancora arrivata alla casa; in codice possiamo tradurre questo concetto come segue:
 
