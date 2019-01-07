@@ -3,27 +3,27 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tecnologie Informatiche - Programmazione</title>
+        <title>Processing - Tecnologie Informatiche - Programmazione</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Materiale di supporto alle lezioni.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -32,7 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">var path_to_root = "";</script>
+        <script type="text/javascript">var path_to_root = "../";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="principles/00-README.html"><strong aria-hidden="true">2.</strong> Principi di programmazione</a></li><li><a href="principles/01-lightbot.html"><strong aria-hidden="true">3.</strong> Lightbot</a></li><li><a href="principles/02-processing.html"><strong aria-hidden="true">4.</strong> Processing</a></li></ol>
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../principles/00-README.html"><strong aria-hidden="true">2.</strong> Principi di programmazione</a></li><li><a href="../principles/01-lightbot.html"><strong aria-hidden="true">3.</strong> Lightbot</a></li><li><a href="../principles/02-processing.html" class="active"><strong aria-hidden="true">4.</strong> Processing</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -105,7 +105,7 @@
                         <h1 class="menu-title">Tecnologie Informatiche - Programmazione</h1> 
 
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                         </div>
@@ -136,159 +136,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#fondamenti-di-programmazione" id="fondamenti-di-programmazione"><h1>Fondamenti di programmazione</h1></a>
-<p><strong>A.S. 2018-2019</strong></p>
-<p><strong>Istituto di Istruzione Superiore G. Marconi</strong></p>
-<p><strong>Tecnologie informatiche</strong></p>
-<p>Benvenuti ragazzi!</p>
-<p>Questo materiale riepiloga quanto detto a lezione.</p>
-<p>Le risposte alle domande dei compiti in classe sono tutte incluse in questo materiale.</p>
-<p>I riferimenti al libro di testo sono tra parentesi quadre, come ad esempio [pag. 1].</p>
-<blockquote>
-<p>Il testo in questi box sono per approfondimento. La lettura di questo materiale non è strettamente
-necessaria per le verifiche, ma è consigliata per vostra cultura personale e in quanto
-sapere indispensabile per chi vuole diventare un informatico.</p>
-</blockquote>
-<p>Buon studio e buon lavoro.</p>
-<a class="header" href="#principi-di-programmazione" id="principi-di-programmazione"><h1>Principi di programmazione</h1></a>
-<p>Qual'è il nostro scopo in quanto studenti e futuri informatici?</p>
-<p>Questa è una domanda che dobbiamo porci continuamente, dal momento in cui cominciamo a studiare informatica e per tutta la nostra carriera lavorativa.</p>
-<p>Probabilmente la risposta più esatta a questa domanda è: <strong>risolvere problemi</strong>.</p>
-<p>Non tutti i problemi possono essere risolti con l'informatica ed i computer, o almeno non in maniera semplice e diretta. Noi ci concentreremo su quei problemi che possiamo risolvere, attraverso gli strumenti che piano piano negli anni impareremo ad usare e padroneggiare.</p>
-<p>È importante però chiarire fin da subito che noi, in quanto esseri umani, per poter <em>risolvere</em> un problema dobbiamo prima <em>comprenderlo</em> ed essere in grado di <em>condividere</em> il nostro punto di vista con le altre persone coinvolte nel progetto. Nel corso degli ultimi 50 anni in cui si è sviluppata l'ingegneria del software, si è visto statisticamente che il modo più efficace per raggiungere questi obiettivi è attraverso la <em>narrativizzazione</em> dei problemi, in altre parole rappresentare i problemi attraverso delle <strong>storie</strong>. Noi useremo questo approccio durante questo corso e per tutti gli anni a seguire.</p>
-<blockquote>
-<p>Ttradurre i progetti in storie è stato formalizzato in particolare da una metodologia chiamata <em>Agile/Scrum</em>. Per maggiori approfondimenti, potete consultare:</p>
-<ul>
-<li><a href="http://www.agilemanifesto.org">Agile Manifesto</a> [1994]</li>
-<li>il mio corso di <a href="https://wbigger.github.io/book-web-app">Sviluppo Web</a> per il triennio informatico, materia TPSI</li>
-<li>il corso su edX di <a href="https://www.edx.org/course/agile-software-development">Agile Software Development</a> (completamente gratuito)</li>
-<li>la specializzazione su Coursera di <a href="https://www.coursera.org/specializations/agile-development">Agile Development</a> (materiale accessibile gratuitamente, a pagamento se si richiede la certificazione)</li>
-</ul>
-</blockquote>
-<a class="header" href="#lightbot" id="lightbot"><h1>Lightbot</h1></a>
-<p>Per spiegare in maniera pratica cosa intendiamo per risolvere i problemi attraverso storie useremo un'applicazione mobile chiamata <a href="http://lightbot.com/"><strong>LightBot</strong></a>. Potete scaricare l'applicazione sul vostro smartphone attraverso i seguenti link.</p>
-<style>
-.text-center {
-	text-align: center;
-}
-.button:hover {
-    animation-name: rubberBand;
-    animation-duration: .35s;
-}
-@-webkit-keyframes rubberBand {
-  0% {transform: scale(1);}
-  30% {transform: scaleX(0.95) scaleY(1.05);}
-  60% {transform: scaleX(1.05) scaleY(0.95);}
-  100% {transform: scale(1);}
-}
-@keyframes rubberBand {
-  0% {transform: scale(1);}
-  30% {transform: scaleX(0.95) scaleY(1.05);}
-  60% {transform: scaleX(1.05) scaleY(0.95);}
-  100% {transform: scale(1);}
-}
-</style>
-<div class="text-center">
-        <a href="https://itunes.apple.com/us/app/lightbot-code-hour/id873943739" target="_blank"_>
-            <img src="./assets/btn_appstore.png" class="button inline-block">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.lightbot.lightbothoc" target="_blank"_>
-            <img src="./assets/btn_googleplay.png" class="button inline-block">
-        </a>
-</div>
-<blockquote>
-<p>Lightbot è pubblicata da <a href="https://code.org">code.org</a>, un'organizzazione nonprofit basata a Seattle (USA) per facilitare l'accesso a scuola della computer science  ed in particolare per incrementare la partecipazione delle donne e minoranze sotto-rappresentate.</p>
-</blockquote>
-<a class="header" href="#avvio-del-programma" id="avvio-del-programma"><h1>Avvio del programma</h1></a>
-<p>Appena aperta l'applicazione di Lightbot, vi comparirà la seguente schermata.</p>
-<style>
-p img {
-  width: 90%;
-}
-</style>
-<p align="center">
-<img title="lightbot-start" src="assets/01-lb-start.png">
-</p>
-<p>Potete scegliere il bot con sembianze femminili cliccando in alto a sinistra e cambiare lingua dall'icona in alto a destra.</p>
-<blockquote>
-<p>Già da questi particolari potete notare l'attenzione per l'inclusione e la partecipazione di tutti e tutte alla programmazione. Anche noi dobbiamo cercare di mantenere lo stesso livello di inclusione a scuola ed in tutto quello che facciamo!</p>
-</blockquote>
-<p>Cliccando sull'immagine al centro, cominciamo il nostro viaggio nella programmazione!</p>
-<a class="header" href="#il-problema-e-la-storia" id="il-problema-e-la-storia"><h1>Il problema e la storia</h1></a>
-<p>Appena avviato il primo livello, subito il nostro bot si presenta e dichiara i suoi obiettivi.</p>
-<p align="center">
-<img title="lightbot-start" src="assets/02-lb-story.png">
-</p>
-<p>Possiamo identificare degli elementi fondamentali che caratterizzano <em>tutte le storie</em>:</p>
-<ol>
-<li><strong>chi ha il problema?</strong></li>
-<li><strong>qual'è il problema?</strong></li>
-<li><strong>perché lo vuole risolvere?</strong></li>
-</ol>
-<p>Nel caso di Lightbot, le risposte a queste domande sono:</p>
-<ol>
-<li>il bot</li>
-<li>accendere tutte le mattonelle</li>
-<li>per passare al livello successivo</li>
-</ol>
-<p>Per descrivere un problema si possono mettere questi tre elementi in un unica frase, creando così una <em>storia utente</em>. Nelle storie generalmente si preferisce mettere il <em>verbo in prima persona</em>, ponendo chi ha il problema come soggetto. La nostra storia utente assume la seguente forma:</p>
-<p align="center">
-<strong>Storia 1</strong>: come bot, voglio accendere tutte le mattonelle per passare al livello successivo
-</p>
-<p>Bene, abbiamo creato la nostra prima storia 😎.</p>
-<blockquote>
-<p>Ovviamente possiamo individuare vari livelli di problemi. Ad esempio ci possiamo chiedere perché il bot vuole passare di livello, oppure potremmo dire che siamo noi che vogliamo passare di livello per divertirci o per imparare a programmare.<br>
-<br>
-Tutte queste considerazioni sono corrette e possono essere prese in considerazione, creando altre storie. Saremo noi programmatori, di volta in volta, a decidere su quale livello di problema lavorare e quali storie prendere in considerazione.</p>
-</blockquote>
-<a class="header" href="#vincoli-di-progetto" id="vincoli-di-progetto"><h1>Vincoli di progetto</h1></a>
-<p>Quando vogliamo risolvere un qualsiasi problema, abbiamo dei limiti che non possiamo superare. Ad esempio potremmo avere denaro o tempo limitati, oppure poca esperienza nel campo o strumenti insufficienti. In ogni caso, per risolvere un problema dobbiamo fare i conti con la nostra realtà, qui e ora. Questi limiti in termine tecnico vengono chiamati <em>vincoli di progetto</em>.</p>
-<blockquote>
-<p>I vincoli tra di loro sono generalmente collegati: ad esempio con i soldi posso comprare strumenti migliori, oppure con il tempo posso studiare per migliorare le mie capacità. L'importante, quando si affronta un problema, è avere ben chiaro quali sono i vincoli.</p>
-</blockquote>
-<p>Continuando il tutorial del primo livello, il bot ci presenta quali sono i nostri strumenti di lavoro.</p>
-<style>
-p.two-pane img {
-  width: 45%;
-}
-</style>
-<p align="center" class="two-pane">
-<img title="lightbot-walk" src="assets/03-lb-command-1.png">
-<img title="lightbot-light" src="assets/03-lb-command-2.png">
-</p>
-<p>Arrivati al secondo livello, avremo la seguente schermata.</p>
-<p align="center">
-<img title="lightbot-screen" src="assets/04-lb-screen.png">
-</p>
-<p>Nella parte destra dello schermo abbiamo lo spazio per inserire i nostri comandi. Nel gioco non possiamo inserire più comandi di quelli che entrano in queste caselle. Questo spazio possiamo considerarlo il nostro limite di spesa, detto anche <em>budget</em>, oltre il quale non possiamo andare per completare il progetto.</p>
-<p>Ricapitolando, finora possiamo individuare due vincoli principali:</p>
-<ul>
-<li>il <strong>budget</strong> che ci è stato assegnato</li>
-<li>gli <strong>strumenti</strong> che abbiamo a disposizione</li>
-</ul>
-<p align="center">
-<img title="lightbot-screen" src="assets/05-lb-constraints.png">
-</p>
-<p>All'inizio è facile riuscire ad accendere tutte le mattonelle, ma andando avanti le cose diventano più complicate. Ad esempio, uno degli ultimi livelli si presenta così:</p>
-<p align="center">
-<img title="lightbot-screen" src="assets/06-lb-hard.png">
-</p>
-<p>Facendo varie prove, si vede presto che il problema è di difficile soluzione perché abbiamo poche caselle a disposizione, in altre parole abbiamo un budget limitato, oppure perché degli strumenti che abbiamo sono insufficienti (sarebbe utile ad esempio un &quot;salta e gira&quot; in un unico comando!). Ma non abbiamo potere su questi vincoli.</p>
-<p>A questo punto diventa chiaro l'ultimo vincolo da cui dipende il successo del nostro progetto:</p>
-<ul>
-<li>le <strong>capacità</strong> del nostro team</li>
-</ul>
-<p>Per riuscire ad aiutare il bot ad accendere tutte le mattonelle, dobbiamo riflettere, ingegnarci, studiare e chiedere aiuto finché non troviamo la soluzione adatta.</p>
-<a class="header" href="#risolvere-un-problema" id="risolvere-un-problema"><h1>Risolvere un problema</h1></a>
-<p>Come abbiamo detto all'inizio, non tutti i problemi sono risolvibili. In particolare, quando un problema comincia ad essere difficile ci scontreremo prima o poi con uno dei tre vincoli:</p>
-<ul>
-<li>non avere abbastanza budget</li>
-<li>non avere gli strumenti adatti</li>
-<li>non avere capacità sufficienti.</li>
-</ul>
-<p>Come essere umani, tendiamo spesso a dare troppa importanza al primo vincolo: non sono riuscito a completare il progetto perché non avevo abbastanza tempo, o soldi, o persone nel team. La realtà è però che il budget, per sua natura, è sempre limitato: non potremo mai aumentare all'infinito i nostri soldi, o il tempo, o le persone che lavorano con noi.</p>
-<p>Gli altri due vincoli possiamo aumentarli molto di più: trovare strumenti migliori, studiare, aggiornarsi. La storia della tecnologia in fondo è proprio questa: l'essere umano, mantenendo più o meno costante il budget, è riuscito a risolvere straordinari problemi migliorando continuamente gli strumenti e le proprie capacità: procurarsi il cibo, condividere informazioni, arrivare sempre più lontano. Il nostro percorso di studi si concentrerà su questo: trovare gli strumenti più adatti e migliorare le nostre capacità per risolvere i problemi che dovremo affrontare.</p>
-<a class="header" href="#processing" id="processing"><h1>Processing</h1></a>
+                        <a class="header" href="#processing" id="processing"><h1>Processing</h1></a>
 <p>Passiamo ora ad un vero ambiente di programmazione che possiamo usare per risolvere problemi e realizzare progetti di vario tipo: <a href="https://processing.org/"><em>Processing</em></a>.</p>
 <blockquote>
 <p>Da <a href="https://it.wikipedia.org/wiki/Processing">Wikipedia</a>: <em>&quot;Processing è un linguaggio di programmazione che consente di sviluppare diverse applicazioni come giochi, animazioni, contenuti interattivi e opere d'arte generativa.&quot;</em><br><br>
@@ -508,6 +356,10 @@ void draw() {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="../principles/01-lightbot.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
 
@@ -517,6 +369,10 @@ void draw() {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../principles/01-lightbot.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
 
                 
@@ -531,26 +387,18 @@ void draw() {
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
 
-        
-        
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-        
         
 
     </body>
