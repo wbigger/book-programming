@@ -211,7 +211,7 @@ Mh... Cappuccetto Rosso ora si sposta ma continua anche oltre la casa della nonn
 ## Controllo di flusso: condizioni
 Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una _condizione_, qualcosa del tipo: _se_ accade questo _allora_ fai questo. In inglese _se_ si traduce con _if_ e allora si traduce con _then_. La struttura di controllo in programmazione si chiama infatti _if-then_.
 
-Subito dopo l'`if` dobbiamo mettere una condizione, ovvero qualcosa che possa essere **vera o falsa**. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga _solo se_ non è ancora arrivata alla casa. Vediamo graficamente le variabili rappresentate sullo schermo.
+Subito dopo l'`if` dobbiamo mettere una condizione, ovvero qualcosa che possa essere **vero o falso**. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga _solo se_ non è ancora arrivata alla casa. Vediamo graficamente le variabili rappresentate sullo schermo.
 
 <p align=center>
 <img class="center" alt="conditional" src="assets/06-pr-dynamic-c.png">
