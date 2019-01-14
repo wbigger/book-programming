@@ -88,7 +88,7 @@ Quando vogliamo risolvere un qualsiasi problema, abbiamo dei limiti che non poss
 
 > I vincoli tra di loro sono generalmente collegati: ad esempio con i soldi posso comprare strumenti migliori, oppure con il tempo posso studiare per migliorare le mie capacità. L'importante, quando si affronta un problema, è avere ben chiaro quali sono i vincoli.
 
-Continuando il tutorial del primo livello, il bot ci presenta quali sono i nostri strumenti di lavoro.
+Continuando il tutorial del primo livello, il bot ci presenta quali sono i nostri **strumenti di lavoro**.
 
 <style>
 p.two-pane img {
@@ -100,6 +100,8 @@ p.two-pane img {
 <img title="lightbot-light" src="assets/03-lb-command-2.png">
 </p>
 
+Gli strumenti di lavoro compaiono nella parte bassa dello schermo. Possiamo usare ogni strumento quante volte vogliamo, senza che questi finiscano o si consumino.
+
 Arrivati al secondo livello, avremo la seguente schermata.
 <p align="center">
 <img title="lightbot-screen" src="assets/04-lb-screen.png">
@@ -108,8 +110,8 @@ Arrivati al secondo livello, avremo la seguente schermata.
 Nella parte destra dello schermo abbiamo lo spazio per inserire i nostri comandi. Nel gioco non possiamo inserire più comandi di quelli che entrano in queste caselle. Questo spazio possiamo considerarlo il nostro limite di spesa, detto anche _budget_, oltre il quale non possiamo andare per completare il progetto.
 
 Ricapitolando, finora possiamo individuare due vincoli principali:
-- il **budget** che ci è stato assegnato
 - gli **strumenti** che abbiamo a disposizione
+- il **budget** che ci è stato assegnato
 
 <p align="center">
 <img title="lightbot-screen" src="assets/05-lb-constraints.png">
