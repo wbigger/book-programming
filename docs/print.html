@@ -549,14 +549,13 @@ img.center {
 </blockquote>
 <a class="header" href="#dichiarazione-di-una-classe" id="dichiarazione-di-una-classe"><h2>Dichiarazione di una classe</h2></a>
 <p>Ipotizziamo che, nel nostro progetto, vogliamo che cappuccetto rosso sia un Personaggio. Per prima cosa, definiamo un nuovo tipo.</p>
-<pre><code class="language-java">class Personaggio {};
+<pre><code class="language-java">class Personaggio {}
 </code></pre>
 <p>Vediamo bene la sintassi, in ordine da sinistra a destra:</p>
 <ul>
 <li>la keyword <code>class</code>, che dichiara una nuova classe</li>
 <li>l'<em>identificativo</em> della classe, in questo caso la <code>Personaggio</code></li>
 <li>le parentesi graffe, che rappresentano il <em>corpo</em> (in inglese <em>body</em>) della classe</li>
-<li>un punto e virgola <code>;</code> che chiude la dichiarazione della classe</li>
 </ul>
 <p>Proviamo ad usare questo nuovo tipo.</p>
 <pre><code class="language-java">class Personaggio {};
@@ -600,7 +599,7 @@ Personaggio cappuccetto;
 <pre><code>The function &quot;setFill(int)&quot; does not exist.
 </code></pre>
 <p>Perché questo? Cerchiamo di capire bene: abbiamo utilizzato il simbolo punto (<code>.</code>) subito dopo la variabile <code>cappuccetto</code>. Cosa significa questo punto? Risposta: significa che stiamo andando a richiamare variabili e funzioni <em>all'interno</em> della classe di cui fa parte cappuccetto, in questo caso <code>Personaggio</code>. In effetti, se andiamo a vedere dentro la classe c'è solo il costruttore,  non esiste un metodo <code>setFill()</code>.</p>
-<p>Ci sono varie soluzioni possibili: una potrebbe essere creare il metodo che ci serve. Per ora però usiamo una strategia diversa: visto che il <code>setFill()</code> fa parte della creazione del personaggio, mettiamo questo metodo dentro il costruttore della classe:</p>
+<p>Ci sono varie soluzioni possibili: una potrebbe essere creare il metodo che ci serve. Per ora però usiamo una strategia diversa: visto che il <code>setFill()</code> fa parte della creazione del personaggio, spostiamo questo metodo dentro il costruttore della classe:</p>
 <pre><code class="language-java">class Personaggio {
   PShape forma;
   Personaggio() {
@@ -630,7 +629,7 @@ void draw() {}
   cappuccetto.disegna();
 }
 </code></pre>
-<p>OK, ora funziona tutto!!</p>
+<p>OK, ora funziona tutto!</p>
 <p>Scriviamo di seguito il codice completo, per riferimento.</p>
 <pre><code class="language-java">Personaggio cappuccetto;
 PShape house;
@@ -641,7 +640,6 @@ class Personaggio {
   Personaggio() {
     forma = createShape(RECT, 0, 0, 30, 30);
     forma.setFill(color(255,0,0));
-
   }
   void disegna() {
     shape(forma, xCappuccetto, height*0.5);
@@ -671,13 +669,180 @@ void draw() {
   }
 }
 </code></pre>
-<a class="header" href="#miglioramenti" id="miglioramenti"><h1>Miglioramenti</h1></a>
 <style>
 img.center {
   width: 75%;
 }
 </style>
+<a class="header" href="#miglioramenti" id="miglioramenti"><h1>Miglioramenti</h1></a>
+<p>Ci sono dei miglioramenti che possiamo fare al codice scritto finora, per renderlo più generale e facilmente utilizzabile.</p>
+<a class="header" href="#parametri-del-costruttore" id="parametri-del-costruttore"><h2>Parametri del costruttore</h2></a>
+<p>Guardiamo da vicino il costruttore della nostra classe:</p>
+<pre><code class="language-java">Personaggio() {
+  forma = createShape(RECT, 0, 0, 30, 30);
+  forma.setFill(color(255,0,0));
+
+}
+</code></pre>
+<p>La classe <code>Personaggio</code> in questo momento crea tutti oggetti con la forma di un quadrato 30x30 di colore rosso. Se volessimo creare dei personaggi di forma e colore diverso? Voler generalizzare una funzione è un problema comune e la soluzione è semplice: possiamo <em>parametrizzare</em> la funzione, rendendola più generica.</p>
+<blockquote>
+<p>Questa tecnia la applicheremo al costruttore ma si può utilizzare per qualsiasi funzione.</p>
+</blockquote>
+<p>Dobbiamo fare i seguenti passi:</p>
+<ol>
+<li>creare dei parametri all'interno delle parentesi tonde nella dichiarazione della funzione, specificando <em>tipo</em> e <em>nome</em> del parametro</li>
+<li>sostituire i valori costanti all'interno della funzione con il nuovo parametro</li>
+<li>aggiungere i parametri necessari quando viene chiamata la funzione</li>
+</ol>
+<p>Nel nostro caso, ipotizziamo di voler avere la possibilità cambiare la dimensione ed il colore del personaggio:</p>
+<ol>
+<li>aggiungo i parametri nella dichiarazione del costruttore:</li>
+</ol>
+<pre><code class="language-java">Personaggio(float siz, color col) {
+   //...
+}
+</code></pre>
+<ol start="2">
+<li>sostituisco le costanti con i nuovi all'interno della funzione:</li>
+</ol>
+<pre><code class="language-java">Personaggio(float siz, color col) {
+    forma = createShape(RECT, 0, 0, siz, siz);
+    forma.setFill(col);
+}
+</code></pre>
+<ol start="3">
+<li>aggiungo i parametri necessari quando creo l'oggetto:</li>
+</ol>
+<pre><code class="language-java">cappuccetto = new Personaggio(30, color(255,0,0));
+</code></pre>
+<p>Ora posso creare nuovi personaggi con forma e colore diverso, semplicemente cambiando i parametri quando creo l'oggetto.</p>
+<a class="header" href="#variabili-di-posizione" id="variabili-di-posizione"><h2>Variabili di posizione</h2></a>
+<p>C'è ancora qualcosa che posso migliorare. Ragionandoci, la variabile <code>xCappuccetto</code> rappresenta la posizione del personaggio di cappuccetto rosso, e quindi fa parte delle caratteristiche del personaggio. Se in seguito dovessi creare il personaggio della nonna, vorrei che anche lei avesse una propria posizione.</p>
+<p>Sposto quindi la variabile <code>xCappuccetto</code> da fuori a <em>dentro</em> la classe <code>Personaggio</code>, cambiandogli nome nel più generico <code>x</code>.</p>
+<pre><code class="language-java">class Personaggio {
+  //...
+  int x = 10; // tutti i personaggi iniziano dalla posizione 10
+  // ...
+}
+</code></pre>
+<p>Quando disegno il personaggio, sostituisco la variabile di posizione con questa nuova:</p>
+<pre><code class="language-java">class Personaggio {
+  //...
+  void disegna() {
+      shape(forma, x, height*0.5);
+  }
+}
+</code></pre>
+<p>Infine, quando cambio la posizione del personaggio, devo ricordarmi di sostituire la vecchia variabile con la nuova:</p>
+<pre><code class="language-java">if (cappuccetto.x &lt; width*0.8) {
+    cappuccetto.x = cappuccetto.x + 5;
+  }
+</code></pre>
+<p>Come potete vedere, anche in questo caso ho usato la notazione con il punto per accedere alla variabile interna alla classe.</p>
+<a class="header" href="#codice-finale" id="codice-finale"><h2>Codice finale</h2></a>
+<p>Di seguito il codice completo finora.</p>
+<pre><code class="language-java">Personaggio cappuccetto;
+PShape house;
+
+
+class Personaggio {
+  PShape forma;
+  int x = 10;
+  Personaggio(float siz, color col) {
+    forma = createShape(RECT, 0, 0, siz, siz);
+    forma.setFill(col);
+  }
+  void disegna() {
+    shape(forma, x, height*0.5);
+  }
+};
+
+void setup() {
+  fullScreen(); // usa tutto lo schermo
+
+  cappuccetto = new Personaggio(30, color(255,0,0));
+
+  house = createShape(RECT, 0, 0, 100, 100);
+}
+
+void draw() {
+  background(#00FF00); // siamo nella foresta, lo sfondo è verde
+
+  //disegniamo la casa a destra, a metà altezza dello schermo
+  shape(house, width*0.8, height*0.5);
+
+  cappuccetto.disegna();
+  // incremento la coordinata x di cappuccetto
+  // solo se non è ancora nella casa della nonna
+  if (cappuccetto.x &lt; width*0.8) {
+    cappuccetto.x = cappuccetto.x + 5;
+  }
+}
+</code></pre>
+<style>
+img.center {
+  width: 75%;
+}
+img.center-100 {
+  width: 100%;
+}
+
+</style>
 <a class="header" href="#passiamo-al-3d" id="passiamo-al-3d"><h1>Passiamo al 3D</h1></a>
+<p>Finora abbiamo usato Processing per disegnare in due dimensioni: rettangoli, quadrati, ellissi, etc. E se volessimo disegnare in tre dimensioni, come ad esempio cubi, sfere o forme più complesse?</p>
+<p>Passare al 3D con Processing è molto semplice, in quanto questo linguaggio è nato in realtà proprio per rendere semplice la creazione di applicazioni in tre dimensioni. Seguiremo ora passo passo le operazioni da fare per passare dal 2D al 3D.</p>
+<a class="header" href="#dichiariamo-di-voler-utilizzare-le-funzionalità-3d" id="dichiariamo-di-voler-utilizzare-le-funzionalità-3d"><h2>Dichiariamo di voler utilizzare le funzionalità 3D</h2></a>
+<p>Prima di tutto dobbiamo dichiarare esplicitamente che vogliamo utilizzare le funzionalità 3D di Processing. Questo va fatto aggiungendo il parametro <code>P3D</code> alla funzione <code>fullScreen()</code> o alla funzione<code>size()</code>.</p>
+<pre><code class="language-java">void setup() {
+  fullScreen(P3D);
+  //...
+}
+</code></pre>
+<a class="header" href="#carichiamo-un-modello-3d" id="carichiamo-un-modello-3d"><h2>Carichiamo un modello 3D</h2></a>
+<p>Ora che siamo in 3D, possiamo caricare modelli tridimensionali. Processing attualmente supporta unicamente il formato <code>.obj</code>, quindi dobbiamo fare attenzione a cercare dei modelli in questo formato o a convertirlo opportunamente, ad esempio con <a href="https://www.blender.org">Blender</a>.</p>
+<blockquote>
+<p>Per convertire un file con Blender, aprire un nuovo progetto, eliminare il cubo di default, importare il file dal formato di origine (es. <code>.fbx</code>, <code>.stl</code>, <code>.gltf</code>), eventualmente modificarlo come necessario (rotazione, scalatura, etc.), quindi esportarlo in formato <code>.obj</code>.</p>
+</blockquote>
+<p>Per il nostro esempio, useremo un modello di Cappuccetto Rosso disponibile qui: <a href="https://raw.githubusercontent.com/wbigger/book-programming/master/src/cappuccetto.obj">cappuccetto.obj</a>. Scaricate il file e salvatelo all'interno della vostra cartella di progetto, nella sottocartella <code>data/</code>.</p>
+<p>L'organizzazione dei file e delle cartelle deve essere il seguente:</p>
+<p align="center">
+<img class="center-100" title="Struttura dei file di un progetto con modelli 3D" alt="folder structure" src="assets/file-structure.png">
+</p>
+<p>Adesso, per importare il modello, dobbiamo usare la funzione <code>loadShape()</code>:</p>
+<pre><code class="language-java">forma = loadShape(&quot;cappuccetto.obj&quot;);
+</code></pre>
+<p>Attenzione: anche in questo caso, parametrizziamo il costruttore per fare in modo di scegliere nel momento in cui viene creato l'oggetto, quale modello si vuole importare. In questo caso, <code>&quot;cappuccetto.obj&quot;</code> è di tipo stringa, quindi il nostro costruttore diventerà:</p>
+<pre><code class="language-java">Personaggio(String filename, color col) {
+    forma = loadShape(filename);
+    forma.setFill(col);
+}
+</code></pre>
+<p>e per creare l'oggetto scriveremo:</p>
+<pre><code class="language-java">cappuccetto = new Personaggio(&quot;cappuccetto.obj&quot;, color(255,0,0));
+</code></pre>
+<p>Se eseguiamo il nostro progetto, otterremo una cosa del genere:</p>
+<p align="center">
+<img class="center" title="Cappuccetto rosso: primo tentativo" alt="cappuccetto flat" src="assets/cappuccetto-light-off.png">
+</p>
+<p>Va quasi bene, ma il nostro modello sembra un po' troppo &quot;piatto&quot;. In effetti, di default Processing mostra solo l'ombra del nostro modello. Per visualizzare qualcosa di più tridimensionale, dobbiamo &quot;accendere le luci&quot; attraverso la funzione <code>lights()</code> da chiamare all'interno di <code>draw()</code>.</p>
+<pre><code class="language-java">void draw() {
+  background(#00FF00);
+  lights();
+  //...
+}
+</code></pre>
+<p>Ora otteniamo qualcosa del genere:</p>
+<p align="center">
+<img class="center" title="Cappuccetto rosso: secondo tentativo" alt="cappuccetto3D" src="assets/cappuccetto.png">
+</p>
+<p>Bene, era quello che volevamo!</p>
+<a class="header" href="#nota-sulla-direzione-degli-assi" id="nota-sulla-direzione-degli-assi"><h2>Nota sulla direzione degli assi</h2></a>
+<p>Di default, Processing ha l'asse z rivolto verso il basso. Questa convenzione è opposta a quella usata comunemente, in cui l'asse z punta verso l'alto.</p>
+<p>Per risolvere il problema, ci sono varie soluzioni. Per ora ve ne consiglio due:</p>
+<ul>
+<li>modificare l'orientamento dell'<code>.obj</code>, ad esempio attraverso Blender con la combinazione di tasti r-x-180 invio</li>
+<li>ruotare il modello da dentro Processing ruotandolo di 180 gradi attorno all'asse X, subito dopo aver caricato il modello (applicando quindi <code>.rotateX(radians(180))</code>)</li>
+</ul>
 
                     </main>
 

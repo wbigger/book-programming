@@ -136,7 +136,116 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#miglioramenti" id="miglioramenti"><h1>Miglioramenti</h1></a>
+                        <style>
+img.center {
+  width: 75%;
+}
+</style>
+<a class="header" href="#miglioramenti" id="miglioramenti"><h1>Miglioramenti</h1></a>
+<p>Ci sono dei miglioramenti che possiamo fare al codice scritto finora, per renderlo più generale e facilmente utilizzabile.</p>
+<a class="header" href="#parametri-del-costruttore" id="parametri-del-costruttore"><h2>Parametri del costruttore</h2></a>
+<p>Guardiamo da vicino il costruttore della nostra classe:</p>
+<pre><code class="language-java">Personaggio() {
+  forma = createShape(RECT, 0, 0, 30, 30);
+  forma.setFill(color(255,0,0));
+
+}
+</code></pre>
+<p>La classe <code>Personaggio</code> in questo momento crea tutti oggetti con la forma di un quadrato 30x30 di colore rosso. Se volessimo creare dei personaggi di forma e colore diverso? Voler generalizzare una funzione è un problema comune e la soluzione è semplice: possiamo <em>parametrizzare</em> la funzione, rendendola più generica.</p>
+<blockquote>
+<p>Questa tecnia la applicheremo al costruttore ma si può utilizzare per qualsiasi funzione.</p>
+</blockquote>
+<p>Dobbiamo fare i seguenti passi:</p>
+<ol>
+<li>creare dei parametri all'interno delle parentesi tonde nella dichiarazione della funzione, specificando <em>tipo</em> e <em>nome</em> del parametro</li>
+<li>sostituire i valori costanti all'interno della funzione con il nuovo parametro</li>
+<li>aggiungere i parametri necessari quando viene chiamata la funzione</li>
+</ol>
+<p>Nel nostro caso, ipotizziamo di voler avere la possibilità cambiare la dimensione ed il colore del personaggio:</p>
+<ol>
+<li>aggiungo i parametri nella dichiarazione del costruttore:</li>
+</ol>
+<pre><code class="language-java">Personaggio(float siz, color col) {
+   //...
+}
+</code></pre>
+<ol start="2">
+<li>sostituisco le costanti con i nuovi all'interno della funzione:</li>
+</ol>
+<pre><code class="language-java">Personaggio(float siz, color col) {
+    forma = createShape(RECT, 0, 0, siz, siz);
+    forma.setFill(col);
+}
+</code></pre>
+<ol start="3">
+<li>aggiungo i parametri necessari quando creo l'oggetto:</li>
+</ol>
+<pre><code class="language-java">cappuccetto = new Personaggio(30, color(255,0,0));
+</code></pre>
+<p>Ora posso creare nuovi personaggi con forma e colore diverso, semplicemente cambiando i parametri quando creo l'oggetto.</p>
+<a class="header" href="#variabili-di-posizione" id="variabili-di-posizione"><h2>Variabili di posizione</h2></a>
+<p>C'è ancora qualcosa che posso migliorare. Ragionandoci, la variabile <code>xCappuccetto</code> rappresenta la posizione del personaggio di cappuccetto rosso, e quindi fa parte delle caratteristiche del personaggio. Se in seguito dovessi creare il personaggio della nonna, vorrei che anche lei avesse una propria posizione.</p>
+<p>Sposto quindi la variabile <code>xCappuccetto</code> da fuori a <em>dentro</em> la classe <code>Personaggio</code>, cambiandogli nome nel più generico <code>x</code>.</p>
+<pre><code class="language-java">class Personaggio {
+  //...
+  int x = 10; // tutti i personaggi iniziano dalla posizione 10
+  // ...
+}
+</code></pre>
+<p>Quando disegno il personaggio, sostituisco la variabile di posizione con questa nuova:</p>
+<pre><code class="language-java">class Personaggio {
+  //...
+  void disegna() {
+      shape(forma, x, height*0.5);
+  }
+}
+</code></pre>
+<p>Infine, quando cambio la posizione del personaggio, devo ricordarmi di sostituire la vecchia variabile con la nuova:</p>
+<pre><code class="language-java">if (cappuccetto.x &lt; width*0.8) {
+    cappuccetto.x = cappuccetto.x + 5;
+  }
+</code></pre>
+<p>Come potete vedere, anche in questo caso ho usato la notazione con il punto per accedere alla variabile interna alla classe.</p>
+<a class="header" href="#codice-finale" id="codice-finale"><h2>Codice finale</h2></a>
+<p>Di seguito il codice completo finora.</p>
+<pre><code class="language-java">Personaggio cappuccetto;
+PShape house;
+
+
+class Personaggio {
+  PShape forma;
+  int x = 10;
+  Personaggio(float siz, color col) {
+    forma = createShape(RECT, 0, 0, siz, siz);
+    forma.setFill(col);
+  }
+  void disegna() {
+    shape(forma, x, height*0.5);
+  }
+};
+
+void setup() {
+  fullScreen(); // usa tutto lo schermo
+
+  cappuccetto = new Personaggio(30, color(255,0,0));
+
+  house = createShape(RECT, 0, 0, 100, 100);
+}
+
+void draw() {
+  background(#00FF00); // siamo nella foresta, lo sfondo è verde
+
+  //disegniamo la casa a destra, a metà altezza dello schermo
+  shape(house, width*0.8, height*0.5);
+
+  cappuccetto.disegna();
+  // incremento la coordinata x di cappuccetto
+  // solo se non è ancora nella casa della nonna
+  if (cappuccetto.x &lt; width*0.8) {
+    cappuccetto.x = cappuccetto.x + 5;
+  }
+}
+</code></pre>
 
                     </main>
 

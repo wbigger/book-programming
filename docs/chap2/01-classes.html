@@ -164,14 +164,13 @@ img.center {
 </blockquote>
 <a class="header" href="#dichiarazione-di-una-classe" id="dichiarazione-di-una-classe"><h2>Dichiarazione di una classe</h2></a>
 <p>Ipotizziamo che, nel nostro progetto, vogliamo che cappuccetto rosso sia un Personaggio. Per prima cosa, definiamo un nuovo tipo.</p>
-<pre><code class="language-java">class Personaggio {};
+<pre><code class="language-java">class Personaggio {}
 </code></pre>
 <p>Vediamo bene la sintassi, in ordine da sinistra a destra:</p>
 <ul>
 <li>la keyword <code>class</code>, che dichiara una nuova classe</li>
 <li>l'<em>identificativo</em> della classe, in questo caso la <code>Personaggio</code></li>
 <li>le parentesi graffe, che rappresentano il <em>corpo</em> (in inglese <em>body</em>) della classe</li>
-<li>un punto e virgola <code>;</code> che chiude la dichiarazione della classe</li>
 </ul>
 <p>Proviamo ad usare questo nuovo tipo.</p>
 <pre><code class="language-java">class Personaggio {};
@@ -215,7 +214,7 @@ Personaggio cappuccetto;
 <pre><code>The function &quot;setFill(int)&quot; does not exist.
 </code></pre>
 <p>Perché questo? Cerchiamo di capire bene: abbiamo utilizzato il simbolo punto (<code>.</code>) subito dopo la variabile <code>cappuccetto</code>. Cosa significa questo punto? Risposta: significa che stiamo andando a richiamare variabili e funzioni <em>all'interno</em> della classe di cui fa parte cappuccetto, in questo caso <code>Personaggio</code>. In effetti, se andiamo a vedere dentro la classe c'è solo il costruttore,  non esiste un metodo <code>setFill()</code>.</p>
-<p>Ci sono varie soluzioni possibili: una potrebbe essere creare il metodo che ci serve. Per ora però usiamo una strategia diversa: visto che il <code>setFill()</code> fa parte della creazione del personaggio, mettiamo questo metodo dentro il costruttore della classe:</p>
+<p>Ci sono varie soluzioni possibili: una potrebbe essere creare il metodo che ci serve. Per ora però usiamo una strategia diversa: visto che il <code>setFill()</code> fa parte della creazione del personaggio, spostiamo questo metodo dentro il costruttore della classe:</p>
 <pre><code class="language-java">class Personaggio {
   PShape forma;
   Personaggio() {
@@ -245,7 +244,7 @@ void draw() {}
   cappuccetto.disegna();
 }
 </code></pre>
-<p>OK, ora funziona tutto!!</p>
+<p>OK, ora funziona tutto!</p>
 <p>Scriviamo di seguito il codice completo, per riferimento.</p>
 <pre><code class="language-java">Personaggio cappuccetto;
 PShape house;
@@ -256,7 +255,6 @@ class Personaggio {
   Personaggio() {
     forma = createShape(RECT, 0, 0, 30, 30);
     forma.setFill(color(255,0,0));
-
   }
   void disegna() {
     shape(forma, xCappuccetto, height*0.5);
