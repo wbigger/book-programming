@@ -20,7 +20,7 @@ Personaggio() {
 
 La classe `Personaggio` in questo momento crea tutti oggetti con la forma di un quadrato 30x30 di colore rosso. Se volessimo creare dei personaggi di forma e colore diverso? Voler generalizzare una funzione è un problema comune e la soluzione è semplice: possiamo _parametrizzare_ la funzione, rendendola più generica.
 
-> Questa tecnia la applicheremo al costruttore ma si può utilizzare per qualsiasi funzione.
+> Questa tecnica la applicheremo al costruttore ma si può utilizzare per qualsiasi funzione.
 
 Dobbiamo fare i seguenti passi:
 1. creare dei parametri all'interno delle parentesi tonde nella dichiarazione della funzione, specificando _tipo_ e _nome_ del parametro
