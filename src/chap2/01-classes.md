@@ -35,14 +35,13 @@ Gli stampini che avete usato avevano una forma ben definita: aereo, squalo, nume
 Ipotizziamo che, nel nostro progetto, vogliamo che cappuccetto rosso sia un Personaggio. Per prima cosa, definiamo un nuovo tipo.
 
 ```java
-class Personaggio {};
+class Personaggio {}
 ```
 
 Vediamo bene la sintassi, in ordine da sinistra a destra:
 - la keyword `class`, che dichiara una nuova classe
 - l'_identificativo_ della classe, in questo caso la `Personaggio`
 - le parentesi graffe, che rappresentano il _corpo_ (in inglese _body_) della classe
-- un punto e virgola `;` che chiude la dichiarazione della classe
 
 Proviamo ad usare questo nuovo tipo.
 
@@ -107,7 +106,7 @@ The function "setFill(int)" does not exist.
 
 Perché questo? Cerchiamo di capire bene: abbiamo utilizzato il simbolo punto (`.`) subito dopo la variabile `cappuccetto`. Cosa significa questo punto? Risposta: significa che stiamo andando a richiamare variabili e funzioni _all'interno_ della classe di cui fa parte cappuccetto, in questo caso `Personaggio`. In effetti, se andiamo a vedere dentro la classe c'è solo il costruttore,  non esiste un metodo `setFill()`.
 
-Ci sono varie soluzioni possibili: una potrebbe essere creare il metodo che ci serve. Per ora però usiamo una strategia diversa: visto che il `setFill()` fa parte della creazione del personaggio, mettiamo questo metodo dentro il costruttore della classe:
+Ci sono varie soluzioni possibili: una potrebbe essere creare il metodo che ci serve. Per ora però usiamo una strategia diversa: visto che il `setFill()` fa parte della creazione del personaggio, spostiamo questo metodo dentro il costruttore della classe:
 
 ```java
 class Personaggio {
@@ -149,7 +148,7 @@ void draw() {}
 }
 ```
 
-OK, ora funziona tutto!!
+OK, ora funziona tutto!
 
 Scriviamo di seguito il codice completo, per riferimento.
 
@@ -163,7 +162,6 @@ class Personaggio {
   Personaggio() {
     forma = createShape(RECT, 0, 0, 30, 30);
     forma.setFill(color(255,0,0));
-
   }
   void disegna() {
     shape(forma, xCappuccetto, height*0.5);
