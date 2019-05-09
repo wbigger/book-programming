@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Costruttori ciclici - Tecnologie Informatiche - Programmazione</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Materiale di supporto alle lezioni.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html" class="active"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Tecnologie Informatiche - Programmazione</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <style>
+.left_side {
+  float:left;
+  margin:5px 20px 0px 5px;
+}
+.right_side {
+  float:left;
+  margin:5px 20px 0px 5px;
+}
+p.clear {
+  clear: both;  
+}
+</style>
+<a class="header" href="#costruttori-ciclici" id="costruttori-ciclici"><h1>Costruttori ciclici</h1></a>
+<p>Cappuccetto Rosso deve passare attraverso una foresta, ma finora nella nostra applicazione c'è solo un grande prato. Come facciamo a disegnare tanti alberi?</p>
+<p><img class="right_side" title="La foresta nera" alt="La foresta nera" src="assets/foresta-nera.jpg" width="20%"></p>
+<p>Cappuccetto Rosso è una storia popolare di varie parti del mondo, ma possiamo far riferimento alla versione dei Fratelli Grimm ed immaginarci che la bambina debba attraversare la foresta nera, formata da una fitta vegetazione di abeti. Per cominciare, proviamo a disegnare la foresta con gli strumenti che abbiamo visto finora.</p>
+<p class="clear"></p>
+<a class="header" href="#definizione-classe-pianta" id="definizione-classe-pianta"><h2>Definizione classe Pianta</h2></a>
+<p>Come abbiamo fatto finora, creiamo una nostra classe <code>Pianta</code> per rappresentare un albero.</p>
+<blockquote>
+<p>Abbiamo scelto <code>Pianta</code> ma anche <code>Albero</code> o <code>Abete</code> potrebbero delle scelte accettabili. La scelta dipende molto da cosa immaginiamo possa servirci in futuro. In ogni caso, l'importante è che la scelta sia sensata <em>adesso</em>, poi se serve possiamo cambiare nome (questa operazione si chiama <em>refactoring</em>). Da evitare assolutamente invece mettere un nome che al momento non ha molto senso perché prevediamo che possa averlo in futuro; in questo modo infatti stiamo creando un programma inconsistente, con probabili conseguenze catastrofiche.</p>
+</blockquote>
+<p>Che caratteristiche ha la nostra pianta? Ha sicuramente una forma ed una posizione nella foresta; inoltre vogliamo che le diverse piante abbiano una dimensione diversa, quindi aggiungiamo anche un attributo per la dimensione. Altra domanda: cosa possiamo fare con la nostra pianta? Diciamo che possiamo seminarla per farla comparire nella nostra foresta.</p>
+<p>Ecco quindi una possibile definizione di questa classe.</p>
+<pre><code class="language-java">class Pianta {
+  PShape forma;
+  float x, y;
+  float dimensione;
+
+  Pianta(String piantaObj) {
+    // assegniamo la dimensione in modo casuale
+    dimensione = random(30, 80);
+    // carichiamo il modello della nostra pianta, passandogli come parametro il file con il modello
+    forma = loadShape(piantaObj);
+    // scaliamo l'oggetto
+    forma.scale(dimensione);
+    // ruotiamolo lungo l'asse X per rispettare le convenzioni di Processing
+    forma.rotateX(radians(180));
+    // ruotiamolo casualmente lungo l'asse verticale, per dare un po' di vivacità alla foresta
+    forma.rotateY(radians(random(-45,45)));
+
+    // opzionale: coloriamo la pianta di verde. Utile se il modello non è già colorato di suo
+    forma.setFill(#28C61E);
+
+    // assegniamo una posizione casuale nello schermo
+    x = random(0, width);
+    y = random(0, height);
+    // spostiamo la pianta nella nuova posizione
+    forma.translate(x,y);
+  }
+
+
+  void semina() {
+    // disegniamo la pianta
+    shape(forma);
+  }
+}
+</code></pre>
+<p>OK, ora abbiamo la nostra pianta.</p>
+<a class="header" href="#metodo-senza-cicli" id="metodo-senza-cicli"><h2>Metodo senza cicli</h2></a>
+<p>Immaginiamo di voler aggiungere 3 alberi. Come già sappiamo fare, creiamo tre variabili e gli assegniamo degli alberi.</p>
+<pre><code class="language-java">// Dichiarazione delle variabili
+Pianta abete0;
+Pianta abete1;
+Pianta abete2;
+
+void setup() {
+  // [...]
+  // Assegnazione delle variabili
+  abete0 = new Pianta(&quot;abete.obj&quot;);
+  abete1 = new Pianta(&quot;abete.obj&quot;);
+  abete2 = new Pianta(&quot;abete.obj&quot;);
+}
+
+void draw() {
+  // [...]
+  // Disegno gli alberi
+  abete0.semina();
+  abete1.semina();
+  abete2.semina();
+}
+</code></pre>
+<p>Questo metodo funziona se abbiamo pochi alberi da disegnare. Ma se ne volessimo disegnare tanti, diventerebbe molto scomodo!</p>
+<p>Per risolvere questo problema dobbiamo usare due strumenti: gli array e i cicli. Cominciamo dai primi.</p>
+<a class="header" href="#array" id="array"><h2>Array</h2></a>
+<p>Sarebbe utile se potessimo dichiarare una sola variabile che contiene tutti gli alberi da disegnare, invece di averne tante tutte simili. Questo in programmazione si può fare attraverso uno strumento che si chiama <em>array</em>.</p>
+<p>In Processing (ovvero in Java) gli array sono una sequenza di oggetti tutti dello stesso tipo. Per dichiarare un array usiamo la seguente sintassi.</p>
+<pre><code class="language-java">// Dichiarazione array
+Pianta[] arrayAbeti;
+</code></pre>
+<p>Come si vede, aggiungendo le parentesi quadre dopo il tipo base, la variabile dichiarata diventa un <em>array di piante</em>; in altre parole, un insieme ordinato di piante. Per ordinato intendiamo che le piante sono in sequenza: esiste una pianta <code>0</code> che viene prima della pianta <code>1</code> e così via.</p>
+<p>Per assegnare la variabile, usiamo invece questa sintassi.</p>
+<pre><code class="language-java">void setup() {
+  // [...]
+
+  // Assegnazione array
+  arrayAbeti = new Pianta[3];
+}
+</code></pre>
+<p>Massima attenzione a questa sintassi. Notiamo prima di tutto che nell'assegnazione dobbiamo ripetere la notazione con il tipo e le parentesi quadre. In questo caso però, nelle parentesi aggiungiamo anche il numero di oggetti che vogliamo mettere nel nostro array, in questo caso tre.</p>
+<p>Fate attenzione che questa assegnazione crea l'array, ovvero il contenitore, ma non i singoli alberi. Per creare i singoli alberi, dobbiamo comunque fare un assegnazione per ogni elemento dell'array.</p>
+<pre><code class="language-java">// Dichiarazione array
+void setup() {
+  // [...]
+  // Assegnazione array
+  arrayAbeti = new Pianta[3];
+  // Assegnazione singole piante
+  arrayAbeti[0] = new Pianta(&quot;abete.obj&quot;);
+  arrayAbeti[1] = new Pianta(&quot;abete.obj&quot;);
+  arrayAbeti[2] = new Pianta(&quot;abete.obj&quot;);
+}
+</code></pre>
+<p>Fate attenzione che, convenzionalmente, il primo elemento dell'array è identificato con l'indice <code>0</code>. Ne segue che l'ultimo elemento sarà identificato con l'indice <code>n-1</code>, dove <code>n</code> è la lunghezza dell'array. Nel nostro caso <code>n</code> è 3 e quindi l'ultimo elemento avrà indice <code>2</code>.</p>
+<p>Finora la situazione non è che sia migliorata molto, ma ora dobbiamo mettere in campo l'altro strumento: i cicli</p>
+<a class="header" href="#ciclo-for-classico" id="ciclo-for-classico"><h1>Ciclo for classico</h1></a>
+<p>Osserviamo bene queste righe:</p>
+<pre><code class="language-java">arrayAbeti[0] = new Pianta(&quot;abete.obj&quot;);
+arrayAbeti[1] = new Pianta(&quot;abete.obj&quot;);
+arrayAbeti[2] = new Pianta(&quot;abete.obj&quot;);
+</code></pre>
+<p>Notiamo che sono quasi del tutto identiche, tranne che per il numero dentro le parentesi quadre. Come facciamo a mettere a fattor comune la parte che si ripete? Con i cicli!</p>
+<p>Ricapitoliamo cosa dobbiamo fare: ripetere un istruzione per ogni (in inglese <code>for</code>) valore di un intero che varia da 0 a 2, incrementando ogni volta l'indice di una unità. Mettendo insieme queste cose, veniamo alla formulazione classica del ciclo for:</p>
+<pre><code class="language-java">for(int index = 0; index &lt; 3; index = index + 1) {
+  arrayAbeti[index] = new Pianta(&quot;abete.obj&quot;);
+}
+</code></pre>
+<p>Ora possiamo aumentare il nostro numero di alberi semplicemente cambiando il valore 3 nell'assegnazione dell'array e nel ciclo. Ottimo!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../chap2/03-3D.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../chap2/03-3D.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

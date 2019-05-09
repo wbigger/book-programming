@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Principi di programmazione</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html" class="active"><strong aria-hidden="true">2.2.</strong> Processing</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Fondamenti di programmazione</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.2.</strong> Miglioramenti</a></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.3.</strong> Passiamo al 3D</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html" class="active"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -206,160 +206,6 @@ Come abbiamo detto, tutto comincia da un problema. Per poter imparare ad usare P
 <blockquote>
 <p>Per rappresentare immagini si usa invece il tipo <strong>PImage</strong></p>
 </blockquote>
-<a class="header" href="#variabili" id="variabili"><h2>Variabili</h2></a>
-<p>Per rappresentare Cappuccetto Rosso, abbiamo bisogno di riservare un pezzettino della nostra memoria RAM che conterrà tutte le informazioni necessarie per disegnarla, come ad esempio dimensione, colore, etc. per riservare un'area di memoria RAM di questo genere ci serve una <strong>variabile</strong>.</p>
-<p>Apriamo l'IDE di Processing, e salviamo il progetto vuoto che ci si presenta con il nome <code>cappuccettorosso</code>.</p>
-<p>Nella prima riga, creiamo la nostra prima variabile PShape.</p>
-<style>
-img.center {
-  width: 75%;
-}
-</style>
-<p align=center>
-<img class="center" alt="variable-declaration" src="assets/02-pr-var.png">
-</p>
-<p>Analizziamo nel dettaglio quello che abbiamo appena scritto:</p>
-<p align=center>
-<img class="center" alt="variable-declaration" src="assets/02-pr-var-c.png">
-</p>
-<p>La creazione di una variabile in termine tecnico si chiama <strong>dichiarazione</strong>. La dichiarazione ha due componenti:</p>
-<ul>
-<li>il <strong>tipo</strong> della variabile, che determina la quantità di spazio occupata in memoria e le caratteristiche della variabile</li>
-<li>l'<strong>identificativo</strong>, che è il <em>nome</em> con cui nel resto del programma possiamo riferirci alla variabile.</li>
-</ul>
-<p>È di estrema importanza che l'identificativo sia chiaro ed autoesplicativo: evitate di usare nomi come <code>a</code>, <code>b</code> o simili e preferite i nomi che hanno un senso all'interno della storia in cui vi trovate.</p>
-<blockquote>
-<p>La favola di Cappuccetto Rosso non sarebbe stata la stessa se la bambina si fosse chiamata <code>a</code> o <code>stivaletti blu</code>!</p>
-</blockquote>
-<p>Appena dichiarata, la variabile non ha alcun valore significativo. Spesso usare una variabile solo dichiarata porta ad un errore in esecuzione con relativo <em>crash</em> dell'applicazione. Dopo aver dichiarato una variabile bisogna quindi dargli un valore, questa operazione si chiama <strong>assegnazione</strong>.</p>
-<p>Assegniamo quindi il valore della nostra variabile nella funzione <code>setup()</code> del nostro programma. La mettiamo in setup perché, una volta assegnata la forma, questa <em>non</em> cambierà per tutto il resto del programma.</p>
-<p align=center>
-<img class="center" alt="variable-assignment" src="assets/03-pr-assign.png">
-</p>
-<p>Come vediamo, l'assegnazione si fa usando il segno <code>=</code> e mettendo a sinistra l'identificativo della nostra variabile e a destra il valore che vogliamo assegnare. In questo caso facciamo creare la forma alla funzione <a href="https://processing.org/reference/createShape_.html"><code>createShape()</code></a>, ed in particolare ci facciamo creare un rettangolo che ha inizialmente posizione <code>0,0</code>, altezza <code>30</code> e larghezza <code>30</code>.</p>
-<p>Procedendo in maniera simile per la casa, otteniamo il seguente codice:</p>
-<pre><code class="language-java">PShape cappuccetto;
-PShape house;
-
-void setup() {
-  fullScreen(); // usa tutto lo schermo
-  cappuccetto = createShape(RECT, 0, 0, 30, 30);
-  house = createShape(RECT, 0, 0, 100, 100);
-}
-</code></pre>
-<p>Ora, nella funzione <code>draw()</code>, vogliamo disegnare cappuccetto rosso a sinistra e la casetta della nonna a destra. Sempre consultando la documentazione, scopriamo che per disegnare una forma possiamo usare la funzione <a href="https://processing.org/reference/shape_.html"><code>shape()</code></a>. Esistono diversi modi di usare <code>shape</code>, a noi fa comodo la versione <code>shape(shape, x, y)</code>, in cui possiamo specificare le coordinate <code>x,y</code> in cui andremo a disegnare la forma.</p>
-<pre><code class="language-java">void draw() {
-  background(#00FF00); // siamo nella foresta, lo sfondo è verde
-
-  //disegniamo la casa a destra, a metà altezza dello schermo
-  shape(house, width*0.8, height*0.5);
-
-  //disegniamo cappuccetto rosso a sinistra, a metà altezza dello schermo
-  shape(cappuccetto, 10, height*0.5);
-}
-</code></pre>
-<p>Se provate ad eseguire questo codice, avrete una schermata simile alla seguente.</p>
-<p align=center>
-<img class="center" alt="static-1" src="assets/04-pr-static-1.png">
-</p>
-<p>Va quasi bene! Dobbiamo però cambiare il colore della bambina in rosso. Come facciamo? Come al solito, andiamo sulla documentazione di <a href="https://processing.org/reference/PShape.html">PShape</a>, scorriamo un po' e scopriamo che esiste un metodo chiamato <code>setFill()</code> che serve proprio per questo.</p>
-<blockquote>
-<p>Ci sono altre soluzioni per colorare la forma, ad esempio quella che già conosciamo di usare la funzione <code>fill()</code> subito prima di disegnare la forma. Però noi useremo setFill() perché ci permette di colorare la nostra forma senza influenzare il resto del disegno.</p>
-</blockquote>
-<p>Avendo trovato <code>setFill()</code> <em>dentro</em> la documentazione di PShape, dobbiamo usare una notazione particolare per poterla chiamare:</p>
-<pre><code class="language-java">void setup() {
-  fullScreen(); // usa tutto lo schermo
-  cappuccetto = createShape(RECT, 0, 0, 30, 30);
-  cappuccetto.setFill(color(255,0,0)); // riempimento rosso
-  house = createShape(RECT, 0, 0, 100, 100);
-}
-</code></pre>
-<p align=center>
-<img class="center" alt="static-2" src="assets/04-pr-static-2.png">
-</p>
-<p>OK! Ora ci rimane solo da far muovere cappuccetto rosso da sinistra a destra. Per fare questo, creiamo una nuova variabile che conterrà la posizione del personaggio. Il <em>tipo</em> di questa variabile è un numero intero, che in Processing si chiama <code>int</code>; come identificativo possiamo usare <code>xCappuccetto</code>, per far capire che è la coordinata <code>x</code> della variabile <code>cappuccetto</code>. Assegniamo anche il valore iniziale 10.</p>
-<p align=center>
-<img class="center" alt="dich-assign" src="assets/05-pr-dich-assign-c.png">
-</p>
-<p>Questa volta, per comodità, abbiamo dichiarato la variabile ed assegnato il valore sulla stessa riga, ma ricordiamoci che sono comunque due operazioni differenti.</p>
-<p>Per far muovere cappuccetto, sostituamo la coordinata x nella funzione <code>shape()</code> con questa nuova variabile, e ricordiamoci di incrementarla ad ogni ciclo. Il risultato finale è il seguente.</p>
-<pre><code class="language-java">PShape cappuccetto;
-PShape house;
-int xCappuccetto = 10;
-
-void setup() {
-  fullScreen(); // usa tutto lo schermo
-  cappuccetto = createShape(RECT, 0, 0, 30, 30);
-  cappuccetto.setFill(color(255,0,0));
-  house = createShape(RECT, 0, 0, 100, 100);
-}
-
-void draw() {
-  background(#00FF00); // siamo nella foresta, lo sfondo è verde
-
-  //disegniamo la casa a destra, a metà altezza dello schermo
-  shape(house, width*0.8, height*0.5);
-
-  //disegniamo cappuccetto a metà altezza dello schermo
-  shape(cappuccetto, xCappuccetto, height*0.5);
-
-  // incremento la coordinata x di cappuccetto
-  xCappuccetto = xCappuccetto + 5;
-}
-</code></pre>
-<p align=center>
-<img class="center" alt="dynamic" src="assets/06-pr-dynamic.gif">
-</p>
-<p>Mh... Cappuccetto Rosso ora si sposta ma continua anche oltre la casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che la bambina avanzi solo se ancora non è arrivata alla casa.</p>
-<a class="header" href="#controllo-di-flusso-condizioni" id="controllo-di-flusso-condizioni"><h2>Controllo di flusso: condizioni</h2></a>
-<p>Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una <em>condizione</em>, qualcosa del tipo: <em>se</em> accade questo <em>allora</em> fai questo. In inglese <em>se</em> si traduce con <em>if</em> e allora si traduce con <em>then</em>. La struttura di controllo in programmazione si chiama infatti <em>if-then</em>.</p>
-<p>Subito dopo l'<code>if</code> dobbiamo mettere una condizione, ovvero qualcosa che possa essere <strong>vero o falso</strong>. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga <em>solo se</em> non è ancora arrivata alla casa. Vediamo graficamente le variabili rappresentate sullo schermo.</p>
-<p align=center>
-<img class="center" alt="conditional" src="assets/06-pr-dynamic-c.png">
-</p>
-<p>In codice possiamo tradurre il concetto &quot;solo se xCappuccetto è minore di width*0.8, fai avanzare cappuccetto&quot; come segue:</p>
-<p align=center>
-<img class="center" alt="conditional" src="assets/07-pr-conditional.png">
-</p>
-<p>Vediamo nel dettaglio queste istruzioni:</p>
-<p align=center>
-<img class="center" alt="conditional" src="assets/07-pr-conditional-c.png">
-</p>
-<p>Tutto inizia con <code>if</code>, che è una parola speciale nel linguaggio di Processing, e per questo viene chiamata <strong>keyword</strong>. Subito dopo, tra <strong>parentesi tonde</strong>, c'è la condizione: in questo caso la posizione x di Cappuccetto Rosso deve essere minore di <code>width*0.8</code>, che è esattamente la posizione della casa. Come possiamo vedere, questa condizione può essere solo vera o falsa, non ci sono altre possibilità nel mezzo. Dopo le parentesi tonde ci sono delle <strong>parentesi graffe</strong> che racchiudono le istruzioni da eseguire, solo se la condizione è vera.</p>
-<p>Il risultato finale è quello che segue.</p>
-<p align=center>
-<img class="center" alt="final" src="assets/08-pr-final.gif">
-</p>
-<p>E questo è il codice relativo.</p>
-<pre><code class="language-java">PShape cappuccetto;
-PShape house;
-int xCappuccetto = 10;
-
-void setup() {
-  fullScreen(); // usa tutto lo schermo
-
-  cappuccetto = createShape(RECT, 0, 0, 30, 30);
-  cappuccetto.setFill(color(255,0,0));
-
-  house = createShape(RECT, 0, 0, 100, 100);
-}
-
-void draw() {
-  background(#00FF00); // siamo nella foresta, lo sfondo è verde
-
-  //disegniamo la casa a destra, a metà altezza dello schermo
-  shape(house, width*0.8, height*0.5);
-
-  //disegniamo cappuccetto a metà altezza dello schermo
-  shape(cappuccetto, xCappuccetto, height*0.5);
-
-  // incremento la coordinata x di cappuccetto
-  // solo se non è ancora nella casa della nonna
-  if (xCappuccetto &lt; width*0.8) {
-    xCappuccetto = xCappuccetto + 5;
-  }
-}
-</code></pre>
 
                     </main>
 
@@ -372,7 +218,7 @@ void draw() {
                         
 
                         
-                            <a rel="next" href="../chap2/00-README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../chap1/03-variables.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -390,7 +236,7 @@ void draw() {
                 
 
                 
-                    <a href="../chap2/00-README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../chap1/03-variables.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

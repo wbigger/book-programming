@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Capitolo 1 - Tecnologie Informatiche - Programmazione</title>
+        <title>Controllo di flusso - Tecnologie Informatiche - Programmazione</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Materiale di supporto alle lezioni.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html" class="active"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html" class="active"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -136,34 +136,68 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#principi-di-programmazione" id="principi-di-programmazione"><h1>Principi di programmazione</h1></a>
-<p>Qual'è il nostro scopo in quanto studenti e futuri informatici?</p>
-<p>Questa è una domanda che dobbiamo porci continuamente, dal momento in cui cominciamo a studiare informatica e per tutta la nostra carriera lavorativa.</p>
-<p>Probabilmente la risposta più esatta a questa domanda è: <strong>risolvere problemi</strong>.</p>
-<p>Non tutti i problemi possono essere risolti con l'informatica ed i computer, o almeno non in maniera semplice e diretta. Noi ci concentreremo su quei problemi che possiamo risolvere, attraverso gli strumenti che piano piano negli anni impareremo ad usare e padroneggiare.</p>
-<p>È importante però chiarire fin da subito che noi, in quanto esseri umani, per poter <em>risolvere</em> un problema dobbiamo prima <em>comprenderlo</em> ed essere in grado di <em>condividere</em> il nostro punto di vista con le altre persone coinvolte nel progetto. Nel corso degli ultimi 50 anni in cui si è sviluppata l'ingegneria del software, si è visto statisticamente che il modo più efficace per raggiungere questi obiettivi è attraverso la <em>narrativizzazione</em> dei problemi, in altre parole rappresentare i problemi attraverso delle <strong>storie</strong>. Noi useremo questo approccio durante questo corso e per tutti gli anni a seguire.</p>
-<blockquote>
-<p>Tradurre i progetti in storie è stato formalizzato in particolare da una metodologia chiamata <em>Agile/Scrum</em>. Per maggiori approfondimenti, potete consultare:</p>
-<ul>
-<li><a href="http://www.agilemanifesto.org">Agile Manifesto</a> [1994]</li>
-<li>il mio corso di <a href="https://wbigger.github.io/book-web-app">Sviluppo Web</a> per il triennio informatico, materia TPSI</li>
-<li>il corso su edX di <a href="https://www.edx.org/course/agile-software-development">Agile Software Development</a> (completamente gratuito)</li>
-<li>la specializzazione su Coursera di <a href="https://www.coursera.org/specializations/agile-development">Agile Development</a> (materiale accessibile gratuitamente, a pagamento se si richiede la certificazione)</li>
-</ul>
-</blockquote>
+                        <a class="header" href="#controllo-di-flusso-condizioni" id="controllo-di-flusso-condizioni"><h1>Controllo di flusso: condizioni</h1></a>
+<p>Per fermare Cappuccetto Rosso solo quando arriva dentro la casa, ci serve di aggiungere una <em>condizione</em>, qualcosa del tipo: <em>se</em> accade questo <em>allora</em> fai questo. In inglese <em>se</em> si traduce con <em>if</em> e allora si traduce con <em>then</em>. La struttura di controllo in programmazione si chiama infatti <em>if-then</em>.</p>
+<p>Subito dopo l'<code>if</code> dobbiamo mettere una condizione, ovvero qualcosa che possa essere <strong>vero o falso</strong>. Nel nostro caso vogliamo che l'incremento della posizione di Cappuccetto Rosso avvenga <em>solo se</em> non è ancora arrivata alla casa. Vediamo graficamente le variabili rappresentate sullo schermo.</p>
+<p align=center>
+<img class="center" alt="conditional" src="assets/06-pr-dynamic-c.png">
+</p>
+<p>In codice possiamo tradurre il concetto &quot;solo se xCappuccetto è minore di width*0.8, fai avanzare cappuccetto&quot; come segue:</p>
+<p align=center>
+<img class="center" alt="conditional" src="assets/07-pr-conditional.png">
+</p>
+<p>Vediamo nel dettaglio queste istruzioni:</p>
+<p align=center>
+<img class="center" alt="conditional" src="assets/07-pr-conditional-c.png">
+</p>
+<p>Tutto inizia con <code>if</code>, che è una parola speciale nel linguaggio di Processing, e per questo viene chiamata <strong>keyword</strong>. Subito dopo, tra <strong>parentesi tonde</strong>, c'è la condizione: in questo caso la posizione x di Cappuccetto Rosso deve essere minore di <code>width*0.8</code>, che è esattamente la posizione della casa. Come possiamo vedere, questa condizione può essere solo vera o falsa, non ci sono altre possibilità nel mezzo. Dopo le parentesi tonde ci sono delle <strong>parentesi graffe</strong> che racchiudono le istruzioni da eseguire, solo se la condizione è vera.</p>
+<p>Il risultato finale è quello che segue.</p>
+<p align=center>
+<img class="center" alt="final" src="assets/08-pr-final.gif">
+</p>
+<p>E questo è il codice relativo.</p>
+<pre><code class="language-java">PShape cappuccetto;
+PShape house;
+int xCappuccetto = 10;
+
+void setup() {
+  fullScreen(); // usa tutto lo schermo
+
+  cappuccetto = createShape(RECT, 0, 0, 30, 30);
+  cappuccetto.setFill(color(255,0,0));
+
+  house = createShape(RECT, 0, 0, 100, 100);
+}
+
+void draw() {
+  background(#00FF00); // siamo nella foresta, lo sfondo è verde
+
+  //disegniamo la casa a destra, a metà altezza dello schermo
+  shape(house, width*0.8, height*0.5);
+
+  //disegniamo cappuccetto a metà altezza dello schermo
+  shape(cappuccetto, xCappuccetto, height*0.5);
+
+  // incremento la coordinata x di cappuccetto
+  // solo se non è ancora nella casa della nonna
+  if (xCappuccetto &lt; width*0.8) {
+    xCappuccetto = xCappuccetto + 5;
+  }
+}
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../chap1/03-variables.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../chap1/01-lightbot.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../chap2/00-README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -175,13 +209,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../chap1/03-variables.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../chap1/01-lightbot.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../chap2/00-README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

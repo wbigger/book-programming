@@ -12,5 +12,6 @@
 ## Cicli
 - costruttori ciclici: for
  - flusso che torna su sè stesso
+- aggiungere design foresta
 
 - approfondimento: conversione da gradi a radianti

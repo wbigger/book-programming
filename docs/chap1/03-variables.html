@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Miglioramenti - Tecnologie Informatiche - Programmazione</title>
+        <title>Variabili - Tecnologie Informatiche - Programmazione</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Materiale di supporto alle lezioni.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html" class="active"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html" class="active"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -136,99 +136,91 @@
 
                 <div id="content" class="content">
                     <main>
-                        <style>
+                        <a class="header" href="#variabili" id="variabili"><h1>Variabili</h1></a>
+<p>Per rappresentare Cappuccetto Rosso, abbiamo bisogno di riservare un pezzettino della nostra memoria RAM che conterrà tutte le informazioni necessarie per disegnarla, come ad esempio dimensione, colore, etc. per riservare un'area di memoria RAM di questo genere ci serve una <strong>variabile</strong>.</p>
+<p>Apriamo l'IDE di Processing, e salviamo il progetto vuoto che ci si presenta con il nome <code>cappuccettorosso</code>.</p>
+<p>Nella prima riga, creiamo la nostra prima variabile PShape.</p>
+<style>
 img.center {
   width: 75%;
 }
 </style>
-<a class="header" href="#miglioramenti" id="miglioramenti"><h1>Miglioramenti</h1></a>
-<p>Ci sono dei miglioramenti che possiamo fare al codice scritto finora, per renderlo più generale e facilmente utilizzabile.</p>
-<a class="header" href="#parametri-del-costruttore" id="parametri-del-costruttore"><h2>Parametri del costruttore</h2></a>
-<p>Guardiamo da vicino il costruttore della nostra classe:</p>
-<pre><code class="language-java">Personaggio() {
-  forma = createShape(RECT, 0, 0, 30, 30);
-  forma.setFill(color(255,0,0));
-
-}
-</code></pre>
-<p>La classe <code>Personaggio</code> in questo momento crea tutti oggetti con la forma di un quadrato 30x30 di colore rosso. Se volessimo creare dei personaggi di forma e colore diverso? Voler generalizzare una funzione è un problema comune e la soluzione è semplice: possiamo <em>parametrizzare</em> la funzione, rendendola più generica.</p>
+<p align=center>
+<img class="center" alt="variable-declaration" src="assets/02-pr-var.png">
+</p>
+<p>Analizziamo nel dettaglio quello che abbiamo appena scritto:</p>
+<p align=center>
+<img class="center" alt="variable-declaration" src="assets/02-pr-var-c.png">
+</p>
+<p>La creazione di una variabile in termine tecnico si chiama <strong>dichiarazione</strong>. La dichiarazione ha due componenti:</p>
+<ul>
+<li>il <strong>tipo</strong> della variabile, che determina la quantità di spazio occupata in memoria e le caratteristiche della variabile</li>
+<li>l'<strong>identificativo</strong>, che è il <em>nome</em> con cui nel resto del programma possiamo riferirci alla variabile.</li>
+</ul>
+<p>È di estrema importanza che l'identificativo sia chiaro ed autoesplicativo: evitate di usare nomi come <code>a</code>, <code>b</code> o simili e preferite i nomi che hanno un senso all'interno della storia in cui vi trovate.</p>
 <blockquote>
-<p>Questa tecnica la applicheremo al costruttore ma si può utilizzare per qualsiasi funzione.</p>
+<p>La favola di Cappuccetto Rosso non sarebbe stata la stessa se la bambina si fosse chiamata <code>a</code> o <code>stivaletti blu</code>!</p>
 </blockquote>
-<p>Dobbiamo fare i seguenti passi:</p>
-<ol>
-<li>creare dei parametri all'interno delle parentesi tonde nella dichiarazione della funzione, specificando <em>tipo</em> e <em>nome</em> del parametro</li>
-<li>sostituire i valori costanti all'interno della funzione con il nuovo parametro</li>
-<li>aggiungere i parametri necessari quando viene chiamata la funzione</li>
-</ol>
-<p>Nel nostro caso, ipotizziamo di voler avere la possibilità cambiare la dimensione ed il colore del personaggio:</p>
-<ol>
-<li>aggiungo i parametri nella dichiarazione del costruttore:</li>
-</ol>
-<pre><code class="language-java">Personaggio(float siz, color col) {
-   //...
-}
-</code></pre>
-<ol start="2">
-<li>sostituisco le costanti con i nuovi all'interno della funzione:</li>
-</ol>
-<pre><code class="language-java">Personaggio(float siz, color col) {
-    forma = createShape(RECT, 0, 0, siz, siz);
-    forma.setFill(col);
-}
-</code></pre>
-<ol start="3">
-<li>aggiungo i parametri necessari quando creo l'oggetto:</li>
-</ol>
-<pre><code class="language-java">cappuccetto = new Personaggio(30, color(255,0,0));
-</code></pre>
-<p>Ora posso creare nuovi personaggi con forma e colore diverso, semplicemente cambiando i parametri quando creo l'oggetto.</p>
-<a class="header" href="#variabili-di-posizione" id="variabili-di-posizione"><h2>Variabili di posizione</h2></a>
-<p>C'è ancora qualcosa che posso migliorare. Ragionandoci, la variabile <code>xCappuccetto</code> rappresenta la posizione del personaggio di cappuccetto rosso, e quindi fa parte delle caratteristiche del personaggio. Se in seguito dovessi creare il personaggio della nonna, vorrei che anche lei avesse una propria posizione.</p>
-<p>Sposto quindi la variabile <code>xCappuccetto</code> da fuori a <em>dentro</em> la classe <code>Personaggio</code>, cambiandogli nome nel più generico <code>x</code>.</p>
-<pre><code class="language-java">class Personaggio {
-  //...
-  int x = 10; // tutti i personaggi iniziano dalla posizione 10
-  // ...
-}
-</code></pre>
-<p>Quando disegno il personaggio, sostituisco la variabile di posizione con questa nuova:</p>
-<pre><code class="language-java">class Personaggio {
-  //...
-  void disegna() {
-      shape(forma, x, height*0.5);
-  }
-}
-</code></pre>
-<p>Infine, quando cambio la posizione del personaggio, devo ricordarmi di sostituire la vecchia variabile con la nuova:</p>
-<pre><code class="language-java">if (cappuccetto.x &lt; width*0.8) {
-    cappuccetto.x = cappuccetto.x + 5;
-  }
-</code></pre>
-<p>Come potete vedere, anche in questo caso ho usato la notazione con il punto per accedere alla variabile interna alla classe.</p>
-<a class="header" href="#codice-finale" id="codice-finale"><h2>Codice finale</h2></a>
-<p>Di seguito il codice completo finora.</p>
-<pre><code class="language-java">Personaggio cappuccetto;
+<p>Appena dichiarata, la variabile non ha alcun valore significativo. Spesso usare una variabile solo dichiarata porta ad un errore in esecuzione con relativo <em>crash</em> dell'applicazione. Dopo aver dichiarato una variabile bisogna quindi dargli un valore, questa operazione si chiama <strong>assegnazione</strong>.</p>
+<p>Assegniamo quindi il valore della nostra variabile nella funzione <code>setup()</code> del nostro programma. La mettiamo in setup perché, una volta assegnata la forma, questa <em>non</em> cambierà per tutto il resto del programma.</p>
+<p align=center>
+<img class="center" alt="variable-assignment" src="assets/03-pr-assign.png">
+</p>
+<p>Come vediamo, l'assegnazione si fa usando il segno <code>=</code> e mettendo a sinistra l'identificativo della nostra variabile e a destra il valore che vogliamo assegnare. In questo caso facciamo creare la forma alla funzione <a href="https://processing.org/reference/createShape_.html"><code>createShape()</code></a>, ed in particolare ci facciamo creare un rettangolo che ha inizialmente posizione <code>0,0</code>, altezza <code>30</code> e larghezza <code>30</code>.</p>
+<p>Procedendo in maniera simile per la casa, otteniamo il seguente codice:</p>
+<pre><code class="language-java">PShape cappuccetto;
 PShape house;
-
-
-class Personaggio {
-  PShape forma;
-  int x = 10;
-  Personaggio(float siz, color col) {
-    forma = createShape(RECT, 0, 0, siz, siz);
-    forma.setFill(col);
-  }
-  void disegna() {
-    shape(forma, x, height*0.5);
-  }
-};
 
 void setup() {
   fullScreen(); // usa tutto lo schermo
+  cappuccetto = createShape(RECT, 0, 0, 30, 30);
+  house = createShape(RECT, 0, 0, 100, 100);
+}
+</code></pre>
+<p>Ora, nella funzione <code>draw()</code>, vogliamo disegnare cappuccetto rosso a sinistra e la casetta della nonna a destra. Sempre consultando la documentazione, scopriamo che per disegnare una forma possiamo usare la funzione <a href="https://processing.org/reference/shape_.html"><code>shape()</code></a>. Esistono diversi modi di usare <code>shape</code>, a noi fa comodo la versione <code>shape(shape, x, y)</code>, in cui possiamo specificare le coordinate <code>x,y</code> in cui andremo a disegnare la forma.</p>
+<pre><code class="language-java">void draw() {
+  background(#00FF00); // siamo nella foresta, lo sfondo è verde
 
-  cappuccetto = new Personaggio(30, color(255,0,0));
+  //disegniamo la casa a destra, a metà altezza dello schermo
+  shape(house, width*0.8, height*0.5);
 
+  //disegniamo cappuccetto rosso a sinistra, a metà altezza dello schermo
+  shape(cappuccetto, 10, height*0.5);
+}
+</code></pre>
+<p>Se provate ad eseguire questo codice, avrete una schermata simile alla seguente.</p>
+<p align=center>
+<img class="center" alt="static-1" src="assets/04-pr-static-1.png">
+</p>
+<p>Va quasi bene! Dobbiamo però cambiare il colore della bambina in rosso. Come facciamo? Come al solito, andiamo sulla documentazione di <a href="https://processing.org/reference/PShape.html">PShape</a>, scorriamo un po' e scopriamo che esiste un metodo chiamato <code>setFill()</code> che serve proprio per questo.</p>
+<blockquote>
+<p>Ci sono altre soluzioni per colorare la forma, ad esempio quella che già conosciamo di usare la funzione <code>fill()</code> subito prima di disegnare la forma. Però noi useremo setFill() perché ci permette di colorare la nostra forma senza influenzare il resto del disegno.</p>
+</blockquote>
+<p>Avendo trovato <code>setFill()</code> <em>dentro</em> la documentazione di PShape, dobbiamo usare una notazione particolare per poterla chiamare:</p>
+<pre><code class="language-java">void setup() {
+  fullScreen(); // usa tutto lo schermo
+  cappuccetto = createShape(RECT, 0, 0, 30, 30);
+  cappuccetto.setFill(color(255,0,0)); // riempimento rosso
+  house = createShape(RECT, 0, 0, 100, 100);
+}
+</code></pre>
+<p align=center>
+<img class="center" alt="static-2" src="assets/04-pr-static-2.png">
+</p>
+<p>OK! Ora ci rimane solo da far muovere cappuccetto rosso da sinistra a destra. Per fare questo, creiamo una nuova variabile che conterrà la posizione del personaggio. Il <em>tipo</em> di questa variabile è un numero intero, che in Processing si chiama <code>int</code>; come identificativo possiamo usare <code>xCappuccetto</code>, per far capire che è la coordinata <code>x</code> della variabile <code>cappuccetto</code>. Assegniamo anche il valore iniziale 10.</p>
+<p align=center>
+<img class="center" alt="dich-assign" src="assets/05-pr-dich-assign-c.png">
+</p>
+<p>Questa volta, per comodità, abbiamo dichiarato la variabile ed assegnato il valore sulla stessa riga, ma ricordiamoci che sono comunque due operazioni differenti.</p>
+<p>Per far muovere cappuccetto, sostituamo la coordinata x nella funzione <code>shape()</code> con questa nuova variabile, e ricordiamoci di incrementarla ad ogni ciclo. Il risultato finale è il seguente.</p>
+<pre><code class="language-java">PShape cappuccetto;
+PShape house;
+int xCappuccetto = 10;
+
+void setup() {
+  fullScreen(); // usa tutto lo schermo
+  cappuccetto = createShape(RECT, 0, 0, 30, 30);
+  cappuccetto.setFill(color(255,0,0));
   house = createShape(RECT, 0, 0, 100, 100);
 }
 
@@ -238,27 +230,30 @@ void draw() {
   //disegniamo la casa a destra, a metà altezza dello schermo
   shape(house, width*0.8, height*0.5);
 
-  cappuccetto.disegna();
+  //disegniamo cappuccetto a metà altezza dello schermo
+  shape(cappuccetto, xCappuccetto, height*0.5);
+
   // incremento la coordinata x di cappuccetto
-  // solo se non è ancora nella casa della nonna
-  if (cappuccetto.x &lt; width*0.8) {
-    cappuccetto.x = cappuccetto.x + 5;
-  }
+  xCappuccetto = xCappuccetto + 5;
 }
 </code></pre>
+<p align=center>
+<img class="center" alt="dynamic" src="assets/06-pr-dynamic.gif">
+</p>
+<p>Mh... Cappuccetto Rosso ora si sposta ma continua anche oltre la casa della nonna...🤔 Dobbiamo aggiungere una condizione che faccia in modo tale che la bambina avanzi solo se ancora non è arrivata alla casa.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../chap2/01-classes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../chap1/02-processing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../chap2/03-3D.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../chap1/04-flow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -270,13 +265,13 @@ void draw() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../chap2/01-classes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../chap1/02-processing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../chap2/03-3D.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../chap1/04-flow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
