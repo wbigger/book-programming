@@ -175,6 +175,8 @@ for(int index = 0; index < arrayAbeti.length; index = index + 1) {
 
 Il caso particolare per cui dobbiamo ripetere delle istruzioni per tutti gli elementi di un array è molto comune e per questo Processing (ovvero Java) prevedono un costrutto particolare, più chiaro e conciso.
 
+Nella funzione `draw()`, per disegnare tutti gli alberi che abbiamo istanziato nella funzione `setup()`, possiamo usare la seguente sintassi.
+
 ```java
 for (Pianta abete: arrayAbeti) {
   abete.semina();

@@ -271,6 +271,7 @@ arrayAbeti[2] = new Pianta(&quot;abete.obj&quot;);
 </code></pre>
 <a class="header" href="#enhanced-for-loop" id="enhanced-for-loop"><h1>Enhanced for loop</h1></a>
 <p>Il caso particolare per cui dobbiamo ripetere delle istruzioni per tutti gli elementi di un array è molto comune e per questo Processing (ovvero Java) prevedono un costrutto particolare, più chiaro e conciso.</p>
+<p>Nella funzione <code>draw()</code>, per disegnare tutti gli alberi che abbiamo istanziato nella funzione <code>setup()</code>, possiamo usare la seguente sintassi.</p>
 <pre><code class="language-java">for (Pianta abete: arrayAbeti) {
   abete.semina();
 }
