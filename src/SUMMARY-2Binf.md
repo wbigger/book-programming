@@ -11,3 +11,7 @@
     - [Miglioramenti](./chap2/02-improvements.md)
   - [Passiamo al 3D](./chap2/03-3D.md)
   - [Costrutti ciclici](./chap2/04-cycles.md)
+
+-------------------
+
+- [Assets](assets.md)
