@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Costruttori ciclici - Tecnologie Informatiche - Programmazione</title>
+        <title>Costrutti ciclici - Tecnologie Informatiche - Programmazione</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Materiale di supporto alle lezioni.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html" class="active"><strong aria-hidden="true">3.3.</strong> Costruttori ciclici</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/00-README.html"><strong aria-hidden="true">2.</strong> Capitolo 1</a></li><li><ol class="section"><li><a href="../chap1/01-lightbot.html"><strong aria-hidden="true">2.1.</strong> Lightbot</a></li><li><a href="../chap1/02-processing.html"><strong aria-hidden="true">2.2.</strong> Processing</a></li><li><a href="../chap1/03-variables.html"><strong aria-hidden="true">2.3.</strong> Variabili</a></li><li><a href="../chap1/04-flow.html"><strong aria-hidden="true">2.4.</strong> Controllo di flusso</a></li></ol></li><li><a href="../chap2/00-README.html"><strong aria-hidden="true">3.</strong> Capitolo 2</a></li><li><ol class="section"><li><a href="../chap2/01-classes.html"><strong aria-hidden="true">3.1.</strong> Classi</a></li><li><ol class="section"><li><a href="../chap2/02-improvements.html"><strong aria-hidden="true">3.1.1.</strong> Miglioramenti</a></li></ol></li><li><a href="../chap2/03-3D.html"><strong aria-hidden="true">3.2.</strong> Passiamo al 3D</a></li><li><a href="../chap2/04-cycles.html" class="active"><strong aria-hidden="true">3.3.</strong> Costrutti ciclici</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -149,7 +149,7 @@ p.clear {
   clear: both;  
 }
 </style>
-<a class="header" href="#costruttori-ciclici" id="costruttori-ciclici"><h1>Costruttori ciclici</h1></a>
+<a class="header" href="#costrutti-ciclici" id="costrutti-ciclici"><h1>Costrutti ciclici</h1></a>
 <p>Cappuccetto Rosso deve passare attraverso una foresta, ma finora nella nostra applicazione c'è solo un grande prato. Come facciamo a disegnare tanti alberi?</p>
 <p><img class="right_side" title="La foresta nera" alt="La foresta nera" src="assets/foresta-nera.jpg" width="20%"></p>
 <p>Cappuccetto Rosso è una storia popolare di varie parti del mondo, ma possiamo far riferimento alla versione dei Fratelli Grimm ed immaginarci che la bambina debba attraversare la foresta nera, formata da una fitta vegetazione di abeti. Per cominciare, proviamo a disegnare la foresta con gli strumenti che abbiamo visto finora.</p>
@@ -264,6 +264,19 @@ arrayAbeti[2] = new Pianta(&quot;abete.obj&quot;);
 }
 </code></pre>
 <p>Ora possiamo aumentare il nostro numero di alberi semplicemente cambiando il valore 3 nell'assegnazione dell'array e nel ciclo. Ottimo!</p>
+<p>Nota: possiamo migliorare leggermente il codice qui sopra, per evitare di sbagliare la dimensione dell'array con conseguenze spesso disastrose. Al posto del valore <code>3</code>, possiamo mettere <code>arrayAbeti.length</code>, che ci restituisce sempre il valore corretto della lunghezza dell'array. Miglioriamo quindi il ciclo scritto qui sopra nel seguente modo:</p>
+<pre><code class="language-java">for(int index = 0; index &lt; arrayAbeti.length; index = index + 1) {
+  arrayAbeti[index] = new Pianta(&quot;abete.obj&quot;);
+}
+</code></pre>
+<a class="header" href="#enhanced-for-loop" id="enhanced-for-loop"><h1>Enhanced for loop</h1></a>
+<p>Il caso particolare per cui dobbiamo ripetere delle istruzioni per tutti gli elementi di un array è molto comune e per questo Processing (ovvero Java) prevedono un costrutto particolare, più chiaro e conciso.</p>
+<pre><code class="language-java">for (Pianta abete: arrayAbeti) {
+  abete.semina();
+}
+</code></pre>
+<p>Questo <code>for</code> chiama la funzione <code>.semina()</code> per tutti gli elementi dell'array. Come vedete, rispetto alla sintassi classica, questa versione &quot;migliorata&quot; (<em>enhanced</em>) è più breve, non rischiamo di sbagliare il valore di inizio o fine dell'indice e, soprattutto, rendiamo esplicito che vogliamo fare un'iterazione su un array. Questo è utile sia per gli altri sviluppatori, per comprendere meglio quello che sta facendo il codice, sia per il compilatore che in questo modo ha maggiori possibilità di ottimizzare il codice e renderlo più veloce.</p>
+<a class="header" href="#codice-finale" id="codice-finale"><h1>Codice finale</h1></a>
 
                     </main>
 

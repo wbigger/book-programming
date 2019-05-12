@@ -12,7 +12,7 @@ p.clear {
 }
 </style>
 
-# Costruttori ciclici
+# Costrutti ciclici
 
 Cappuccetto Rosso deve passare attraverso una foresta, ma finora nella nostra applicazione c'è solo un grande prato. Come facciamo a disegnare tanti alberi?
 
@@ -162,3 +162,25 @@ for(int index = 0; index < 3; index = index + 1) {
 ```
 
 Ora possiamo aumentare il nostro numero di alberi semplicemente cambiando il valore 3 nell'assegnazione dell'array e nel ciclo. Ottimo!
+
+Nota: possiamo migliorare leggermente il codice qui sopra, per evitare di sbagliare la dimensione dell'array con conseguenze spesso disastrose. Al posto del valore `3`, possiamo mettere `arrayAbeti.length`, che ci restituisce sempre il valore corretto della lunghezza dell'array. Miglioriamo quindi il ciclo scritto qui sopra nel seguente modo:
+
+```java
+for(int index = 0; index < arrayAbeti.length; index = index + 1) {
+  arrayAbeti[index] = new Pianta("abete.obj");
+}
+```
+
+# Enhanced for loop
+
+Il caso particolare per cui dobbiamo ripetere delle istruzioni per tutti gli elementi di un array è molto comune e per questo Processing (ovvero Java) prevedono un costrutto particolare, più chiaro e conciso.
+
+```java
+for (Pianta abete: arrayAbeti) {
+  abete.semina();
+}
+```
+
+Questo `for` chiama la funzione `.semina()` per tutti gli elementi dell'array. Come vedete, rispetto alla sintassi classica, questa versione "migliorata" (_enhanced_) è più breve, non rischiamo di sbagliare il valore di inizio o fine dell'indice e, soprattutto, rendiamo esplicito che vogliamo fare un'iterazione su un array. Questo è utile sia per gli altri sviluppatori, per comprendere meglio quello che sta facendo il codice, sia per il compilatore che in questo modo ha maggiori possibilità di ottimizzare il codice e renderlo più veloce.
+
+# Codice finale

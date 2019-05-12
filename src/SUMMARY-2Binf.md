@@ -10,4 +10,4 @@
   - [Classi](./chap2/01-classes.md)
     - [Miglioramenti](./chap2/02-improvements.md)
   - [Passiamo al 3D](./chap2/03-3D.md)
-  - [Costruttori ciclici](./chap2/04-cycles.md)
+  - [Costrutti ciclici](./chap2/04-cycles.md)
